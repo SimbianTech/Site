@@ -74,58 +74,6 @@
             height: 33px;
         }
 
-        /* Link Tree Section */
-        .container {
-            margin-top: 150px;
-            width: 100%;
-            max-width: 700px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .category {
-            width: 100%;
-            text-align: center;
-        }
-
-        .category-title {
-            font-size: 25px;
-            margin-bottom: 15px;
-            color: #00A2E8;
-        }
-
-        .link-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .link-button {
-            display: block;
-            width: 462px;
-            height: 62.5px;
-            text-align: center;
-            line-height: 62.5px;
-            text-decoration: none;
-            font-size: 22.5px;
-            font-weight: 0;
-            color: #00A2E8;
-            background: url('button.png') no-repeat center center/cover;
-            border: none;
-            transition: transform 0.2s;
-        }
-
-        .link-button:hover {
-            transform: translateY(-3px);
-        }
-
-        .link-button:active {
-            transform: translateY(1px);
-        }
-
         /* Footer */
         .footer {
             position: fixed;
@@ -133,6 +81,121 @@
             left: 10px;
             font-size: 14px;
             color: #00A2E8;
+        }
+
+        /* Sections */
+        .section {
+            width: 100%;
+            max-width: 1035px;
+            aspect-ratio: 1035 / 780;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: auto;
+            justify-content: auto;
+            color: #00A2E8;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            margin-top: 75px;
+        }
+
+        .section:first-of-type {
+            margin-top: 75px;
+        }
+
+        .section .photo-area {
+            flex: 1;
+            height: 94%;
+            margin: 20px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .section .text-area {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .section h2 {
+            font-size: calc(4vw * (100vw / 1035));
+            margin-bottom: 20px;
+            font-weight: normal;
+            font-size: 45px;
+        }
+
+        .section p {
+            font-size: calc(1.5vw * (100vw / 1035));
+            line-height: 1.6;
+            font-weight: normal;
+        }
+
+        .section .section-button {
+            align-items: bottom;
+            width: 435px;
+            height: 50px;
+            margin: 25px;
+            background-size: cover;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+            font-family: 'Lilita One', cursive;
+            color: #00A2E8;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            transition: transform 0.2s;
+            text-decoration: none;
+
+        }
+
+        .section .section-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .section .section-button:active {
+            transform: translateY(1px)
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1035px) {
+            .section {
+                width: 90%;
+                flex-direction: column;
+            }
+
+            .section .photo-area {
+                height: 50%;
+                margin: 10px auto;
+            }
+
+            .section .text-area {
+                padding: 10px;
+                align-items: top;
+            }
+
+            .section h2 {
+                font-size: calc(7vw * (90vw / 1035));
+                
+                
+            }
+
+            .section p {
+                font-size: calc(2.5vw * (90vw / 1035));
+                
+            }
+            .section .section-button {
+                width: 45%; /* Adjust width to be relative */
+                height: auto; /* Allow height to adjust dynamically */
+                font-size: calc(4vw); /* Responsive text size */
+                line-height: calc(4vw); /* Adjust line height to match text size */
+            }
+
+
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
@@ -152,20 +215,62 @@
         </div>
     </div>
 
-    <!-- Link Tree Categories -->
-    <div class="container">
-        <div class="category">
-            <div class="category-title">:(</div>
-            <div class="link-group">
-              
-            </div>
+    <!-- Sections -->
+    <div class="section" style="background-image: url('texture1.png');">
+        <div class="photo-area" style="background-image: url('photo1.jpg');"></div>
+        <div class="text-area">
+            <h2>Welcome to my website!!!</h2>
+            <p>I created this website beacause I wanted to do so for quite a while, so here it is. If you scroll bellow you can learn more about the types of content I make and what I do. If you press the button bellow, it will take you to my link tree where you can find my platforms. <br><br>Imagine using a photo of yourself from 2022 beacause you dont have good photos of yourself.</p>
+            <a href="https://simbiantech.github.io/Site/linktree/linktree.html" class="section-button" style="background-image: url('button-image1.png');">Link Tree</a>
         </div>
-        <div class="category">
-            <div class="category-title">Woops, this part of the website is not done yet, consider checking this out for now.</div>
-            <div class="link-group">
-                <a href="https://simbiantech.github.io/Site/linktree/linktree.html" class="link-button">Link Tree</a>
-                           </div>
-
+    </div>
+    <div class="section" style="background-image: url('texture2.png');">
+        <div class="photo-area" style="background-image: url('photo2.png');"></div>
+        <div class="text-area">
+            <h2>Simbian Gaming</h2>
+            <p>This is my first YouTube channel creaed back in October 2015, I have maintained this channel for nearly 10 years and its still going pretty decently today tho my focus is slowly shifting towards Simbian Tech. I also Stream games (mostly minecraft) both on Twitch and YouTube, TikTok account also exits but there is not much there.</p>
+            <a href="https://www.youtube.com/@SimbianGaming" class="section-button" style="background-image: url('button-image1.png');">Youtube</a>
+            <a href="https://www.twitch.tv/simbian_gaming" class="section-button" style="background-image: url('button-image1.png');">Twitch</a>
+        </div>
+    </div>
+    <div class="section" style="background-image: url('texture1.png');">
+        <div class="photo-area" style="background-image: url('photo3.jpg');"></div>
+        <div class="text-area">
+            <h2>Simbian Stuff</h2>
+            <p>This channel was created about a year after Simbian Gaming, it mostly contains random content like demo phone videos, testing videos and other stuff.</p>
+            <a href="https://www.youtube.com/@SimbianStuff" class="section-button" style="background-image: url('button-image1.png');">Youtube</a>
+        </div>
+    </div>
+    <div class="section" style="background-image: url('texture1.png');">
+        <div class="photo-area" style="background-image: url('photo4.jpg');"></div>
+        <div class="text-area">
+            <h2>Simbian Ducks and Swans</h2>
+            <p>This was basically an expiriment to see how far I can go by just uploading shorts of ducks and swans in a local park.</p>
+            <a href="https://www.youtube.com/@SimbianDucksNSwans" class="section-button" style="background-image: url('button-image1.png');">Youtube</a>
+        </div>
+    </div>
+    <div class="section" style="background-image: url('texture1.png');">
+        <div class="photo-area" style="background-image: url('photo5.png');"></div>
+        <div class="text-area">
+            <h2>Simbian Tech</h2>
+            <p>Originally this was a channel I created for making vlogs back in 2020, since that didn't go anywhere in 2022 i reporpused it into my tech channel since posting tech content on my main channel wouldnt go so well. In 2023 Simbian Gaming on tiktok became Simbian Tech due to the amount of tech content i was uploading there. And yes it is slowly becoming my main channel.</p>
+            <a href="https://www.youtube.com/@SimbianTech" class="section-button" style="background-image: url('button-image1.png');">Youtube</a>
+            <a href="https://www.tiktok.com/@simbiantech" class="section-button" style="background-image: url('button-image1.png');">TikTok</a>
+        </div>
+    </div>
+    <div class="section" style="background-image: url('texture6.png');">
+        <div class="photo-area" style="background-image: url('photo6.png');"></div>
+        <div class="text-area">
+            <h2>Tom's Game Corner</h2>
+            <p>This channel created just last year, here im uploading videos about my hardware side of gaming, tho at the moment I don't have many ideas.</p>
+            <a href="https://www.youtube.com/@SimbiansGameCorner" class="section-button" style="background-image: url('button-image1.png');">Youtube</a>
+        </div>
+    </div>
+    <div class="section" style="background-image: url('texture1.png');">
+        <div class="text-area">
+            <h2>You have reached the bottom</h2>
+            <p>This site was created by me while "harrasing" Chat GPT to do it, and when it just give up, I come in and do some things. It's quite what tools we have today and what we can do with them.</p>
+        </div>
     </div>
 
     <!-- Footer -->
