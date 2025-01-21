@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Lilita One', cursive;
-            background: url('BG2.jpg') no-repeat center center/cover;
+            background: url('S3.jpg') no-repeat center center/cover;
             background-attachment: fixed;
             color: #00A2E8;
             min-height: 100vh;
@@ -125,7 +125,6 @@
         .mobile-menu.active {
             display: block;
         }
-
       /* Grid of Buttons */
 .button-grid {
     display: grid;
@@ -153,16 +152,16 @@
 .button:active {
     transform: translateY(1px);
 }
+/* Media Query for Small Screens */
 @media (max-width: 768px) {
             .header .header-buttons {
                 display: none;
             }
-            
+
             .hamburger-menu {
                 display: block;
             }
-        }
-
+    }
         /* Footer */
         .footer {
             position: fixed;
@@ -176,50 +175,45 @@
     <link rel="icon" href="icon.png" type="image/png">
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <a href="https://simbiantech.github.io/Site/" class="title">Simbian's Attic</a>
-        <!-- Buttons Container on the Left -->
-        <div class="header-buttons">
-            <a href="https://simbiantech.github.io/Site/downloads/downloads.html" class="header-button">
-                <img src="downloads-icon.png" alt="Downloads Icon"> Downloads
-            </a>
-            <a href="https://simbiantech.github.io/Site/linktree/linktree.html" class="header-button">
-                <img src="linktree-icon.png" alt="Link Tree Icon"> Link Tree
-            </a>
-
-        </div>
-
-        <!-- Hamburger Menu (Image as Icon) -->
-        <div class="hamburger-menu" onclick="toggleMenu()">
-            <img src="ham.png" alt="Hamburger Menu Icon">
-        </div>
-    </div>
-
-    <!-- Fullscreen Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="https://simbiantech.github.io/Site/downloads/downloads.html">
+   <!-- Header -->
+   <div class="header">
+    <a href="https://simbiantech.github.io/Site/" class="title">Simbian's Attic</a>
+    <!-- Buttons Container on the Left -->
+    <div class="header-buttons">
+        <a href="https://simbiantech.github.io/Site/downloads/downloads.html" class="header-button">
             <img src="downloads-icon.png" alt="Downloads Icon"> Downloads
         </a>
-        <a href="https://simbiantech.github.io/Site/linktree/linktree.html">
+        <a href="https://simbiantech.github.io/Site/linktree/linktree.html" class="header-button">
             <img src="linktree-icon.png" alt="Link Tree Icon"> Link Tree
         </a>
 
     </div>
 
+    <!-- Hamburger Menu (Image as Icon) -->
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <img src="ham.png" alt="Hamburger Menu Icon">
+    </div>
+</div>
+
+<!-- Fullscreen Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="https://simbiantech.github.io/Site/downloads/downloads.html">
+        <img src="downloads-icon.png" alt="Downloads Icon"> Downloads
+    </a>
+    <a href="https://simbiantech.github.io/Site/linktree/linktree.html">
+        <img src="linktree-icon.png" alt="Link Tree Icon"> Link Tree
+    </a>
+
+</div>
+
     <!-- Button Grid -->
     <div class="button-grid">
-        <a class="button" style="background-image: url('DB1.png');"href="https://simbiantech.github.io/Site/downloads/themes/themes.html"></a>
-        <a class="button" style="background-image: url('DB2.png');"href="https://simbiantech.github.io/Site/downloads/worlds/worlds.html"></a>
-        <a class="button" style="background-image: url('DB3.png');"href="https://simbiantech.github.io/Site/downloads/demo/demo.html"></a>
-        <!--<button class="button" style="background-image: url('DB4.png');"></button>-->
-        <!--<button class="button" style="background-image: url('DB5.png');"></button>-->
-        <!--<button class="button" style="background-image: url('DB6.png');"></button>-->
-        <!--<button class="button" style="background-image: url('DB7.png');"></button>-->
+        <a class="button" style="background-image: url('DBT1.png');" href="https://simbiantech.github.io/Site/downloads/demo/S4/s4.html"></a>
+        <!--<button class="button" style="background-image: url('DBT2.png');"></button>-->
     </div>
 
     <!-- Footer -->
-    <div class="footer">Summer 6 (August 2023)</div>
+    <div class="footer">Samsung Galaxy S3 default lock screen wallpaper</div>
     <script>
         function toggleMenu() {
             const mobileMenu = document.getElementById("mobileMenu");
