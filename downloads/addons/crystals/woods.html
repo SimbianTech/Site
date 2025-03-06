@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crystals and Woods Addon - Downloads - Simbian's Attic</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lilita One', cursive;
+            background: url('Cave.png') no-repeat center center/cover;
+            background-attachment: fixed;
+            color: #00A2E8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 75px 0 0; /* Add a 75px gap at the top */
+            font-size: 125%;
+        }
+
+        /* Header */
+        .header {
+            height: 75px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            background: rgba(19, 28, 51, 0.7);
+            color: #00A2E8;
+            font-size: 30px;
+            font-weight: 0;
+            z-index: 1000;
+        }
+
+        .header .title {
+            cursor: pointer;
+            text-decoration: none;
+            color: #00A2E8;
+        }
+
+        .header .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header .header-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #00A2E8;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .header .header-button img {
+            width: 33px;
+            height: 33px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger-menu img {
+            width: 33px;
+            height: 33px;
+        }
+
+        /* Mobile Menu (Full Screen and Visible by Default) */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(19, 28, 51, 0.7);
+            color: #00A2E8;
+            padding: 50px 20px;
+            text-align: center;
+            overflow-y: auto;
+            backdrop-filter: blur(10px); /* Apply blur to the menu */
+            z-index: 999;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: #00A2E8;
+            font-size: 24px;
+            text-decoration: none;
+            margin: 20px 0;
+            padding: 10px;
+            font-weight: 500;
+        }
+
+        .mobile-menu a img {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #333;
+        }
+
+        /* Show Mobile Menu when active */
+        .mobile-menu.active {
+            display: block;
+        }
+
+        /* Main Content */
+        .main-container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Left Section */
+        .left-section {
+            word-wrap: break-word; /* Ensures long words are broken to wrap within the container */
+            word-break: break-word; /* Adds fallback for additional support */
+            white-space: pre-wrap; /* Preserves line breaks in text while allowing wrapping */
+            overflow-wrap: break-word; /* Breaks words that are too long for the container */
+            position: fixed;  /* Make the left section fixed in the viewport */
+            top: 74px;  /* Add the 75px gap from the top */
+            left: 0;  /* Align to the left of the viewport */
+            height: 100vh;  /* Full height of the viewport */
+            width: 33.33%;
+            background: rgba(24, 42, 61, 0.7);
+            backdrop-filter: blur(10px); /* Blur the background */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: top;
+            text-align: left;
+            z-index: 1;  /* Ensure it appears above the right section */
+            overflow-y: auto;
+
+             /* Add the texture to the right edge */
+            background-image: url('div.png'); /* Replace with the path to your texture */
+            background-repeat: repeat-y;  /* Repeat vertically */
+            background-position: right top;  /* Position the texture on the right side */
+            background-size: auto 10%;  /* Adjust the texture size to repeat vertically in small blocks */
+            background-size: 10px auto;  /* Set the texture width to 5px and allow it to stretch vertically */
+        }
+
+        .left-section .title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .left-section .text {
+            font-size: 1.2em;
+        }
+        .left-section::-webkit-scrollbar {
+    width: 20px; /* Increased to accommodate offset */
+}
+
+.left-section::-webkit-scrollbar-thumb {
+    background-color: #00A2E8;
+    border-radius: 1px;
+    border: 100px solid transparent; /* Maintains offset within the track */
+    background-clip: content-box; /* Ensures thumb stays within track area */
+}
+
+.left-section::-webkit-scrollbar-track {
+    margin-left: 20px; /* Offsets the scrollbar from the content */
+}
+
+     /* Right Section */
+     .right-section {
+        width: 66.66%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 33.33%; /* Align the right section next to the left section */
+    }
+
+    .right-section .button {
+        width: 100%;
+        max-width: 870px;
+        height: auto;
+        max-height: 200px;
+        aspect-ratio: 870 / 200;
+        margin-bottom: 20px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+        .right-section .button:hover {
+            transform: translateY(-3px);
+        }
+        .right-section .button:active {
+            transform: translateY(1px);
+        }
+
+        
+
+        /* Footer */
+        .footer {
+            margin-left: 33.33%; /* Align the right section next to the left section */
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 14px;
+            color: #00A2E8;
+        
+
+    }
+/* Media query for screen width below 900px */
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column; /* Stack left and right sections vertically */
+    }
+    .header .header-buttons {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+    /* Left Section */
+    .left-section {
+        top: 0;
+        width: 100%;  /* Make it take full width */
+        position: relative;  /* Remove the fixed positioning */
+        height: auto;  /* Adjust the height to fit content */
+        margin-top: -1px;  /* Remove the left margin */
+                /* Position the texture at the bottom */
+        background-position: bottom center; /* Adjusted to position at the bottom */
+        background-size: 10px auto;  /* Maintain original texture size for vertical stretching */
+        background-image: url('div2.png');  /* Replace with your new image */
+        background-repeat: repeat-x;  /* Repeat horizontally instead of vertically */
+        height: 33.3%;  /* Fix left section width to 33.3% */
+       
+    }
+
+    /* Right Section */
+    .right-section {
+        height: 66.6%;  /* Fix right section width to 66.6% */
+        width: 100%;  /* Make it take full width */
+        margin-left: 0;  /* Remove the margin */
+        padding: 20px;  /* Keep the padding consistent */
+    }
+
+    /* Footer */
+    .footer {
+        margin-left: 0; /* Adjust footer position for mobile view */
+        left: 0;  /* Ensure it's aligned to the left */
+        position: relative; /* Make the footer position relative to the viewport */
+    
+        
+    
+    }
+}
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="icon.png" type="image/png">
+</head>
+<body>
+       <!-- Header -->
+       <div class="header">
+        <a href="https://simbiantech.github.io/Site/" class="title">Simbian's Attic</a>
+        <!-- Buttons Container on the Left -->
+        <div class="header-buttons">
+            <a href="https://simbiantech.github.io/Site/downloads/downloads.html" class="header-button">
+                <img src="downloads-icon.png" alt="Downloads Icon"> Downloads
+            </a>
+            <a href="https://simbiantech.github.io/Site/linktree/linktree.html" class="header-button">
+                <img src="linktree-icon.png" alt="Link Tree Icon"> Link Tree
+            </a>
+
+        </div>
+
+        <!-- Hamburger Menu (Image as Icon) -->
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <img src="ham.png" alt="Hamburger Menu Icon">
+        </div>
+    </div>
+
+    <!-- Fullscreen Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="https://simbiantech.github.io/Site/downloads/downloads.html">
+            <img src="downloads-icon.png" alt="Downloads Icon"> Downloads
+        </a>
+        <a href="https://simbiantech.github.io/Site/linktree/linktree.html">
+            <img src="linktree-icon.png" alt="Link Tree Icon"> Link Tree
+        </a>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <div class="title">Crystals and Woods (V4.X.X)</div>
+            <div class="text">Addons for New Championcraft 9.6-13 whitch adds Crystal and 2 new types of wood to the game<br>Created by: Simbian and Flipswap<br><br>ℹ️ Compatible with Minecraft Bedrock 1.18 and later<br><br>Required for:<br>New Championcraft 9.6<br>New Championcraft 9.7<br>New Championcraft X<br>New Championcraft 11<br>New Championcraft 12<br>New Championcarft 13<br><br><br><br></div>
+        </div>
+
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <!-- Button 1 -->
+            <a class="button" style="background-image: url('31.png');" href="https://cdn.discordapp.com/attachments/1176618409484628039/1176618465809924126/New_Championcraft_mod_og_V4.0.0.mcaddon?ex=67c6b816&is=67c56696&hm=0ee2aad2242a5b84e0d86af139f761c646e6938d01290569fd7f2bf2058f8562&"></a>
+            <a class="button" style="background-image: url('32.png');" href="https://cdn.discordapp.com/attachments/1176618409484628039/1176618474961899570/New_Championcraft_mod_V4.0.1.mcaddon?ex=67c6b818&is=67c56698&hm=c76999abdb71d8eab9d0f052f34dee37e6f40ac2211d75aca8581c7fcbce6470&"></a>
+            <a class="button" style="background-image: url('33.png');" href="https://cdn.discordapp.com/attachments/1176618409484628039/1176618481194639380/New_Championcraft_mod_V4.0.2.mcaddon?ex=67c6b81a&is=67c5669a&hm=55017d69a3904a295def204f6732bae97aeb5b8f35cfb30d6780a1a4acd822d2&"></a>
+            <a class="button" style="background-image: url('34.png');" href="https://cdn.discordapp.com/attachments/1176618409484628039/1176618496449314846/New_Championcraft_mod_V4.0.3.mcaddon?ex=67c6b81e&is=67c5669e&hm=f74d0844559739463a89377f4c3420ddb6ead1a18656cb01570f79a00309d809&"></a>
+            <a class="button" style="background-image: url('35.png');" href="https://cdn.discordapp.com/attachments/1176618409484628039/1176618503978111028/New_Championcraft_mod_V4.0.4.mcaddon?ex=67c6b81f&is=67c5669f&hm=1634f493b1cdc7fdd374eb5996d03d5ad65eb5d9238b8cb42525e2bbd1ea5ff0&"></a>
+            <a class="button" style="background-image: url('36.png');" href="https://cdn.discordapp.com/attachments/1176618409484628039/1176618513645981736/New_Championcraft_mod_V4.0.5.mcaddon?ex=67c6b822&is=67c566a2&hm=b08de8f2fa3cff6ede65d7098a27d0c7d064677d670f3adafb93cf09c2613c48&"></a>
+            <a class="button" style="background-image: url('37.png');" href="https://cdn.discordapp.com/attachments/1176618409484628039/1176618518347788389/New_Championcraft_mod_V4.1.0.mcaddon?ex=67c6b823&is=67c566a3&hm=4d3661b22d56fa9b18b5c7c4b42f5d263baaff92611fa24d1630809f1c350572&"></a>
+            <a class="button" style="background-image: url('38.png');" href="https://cdn.discordapp.com/attachments/1176618409484628039/1176618524526002307/New_Championcraft_mod_V4.1.1.mcaddon?ex=67c6b824&is=67c566a4&hm=5ffa8cfa4ebc945811195ec747b0a097fa4ee3240ba644b03ed923962a0d6490&"></a>
+            <a class="button" style="background-image: url('39.png');" href="https://cdn.discordapp.com/attachments/1176618409484628039/1176618530305749063/New_Championcraft_mod_V4.1.2.mcaddon?ex=67c6b826&is=67c566a6&hm=ed1107f53bbc734dafb3557e5208f0c6ae2ac8ecc08fe114d26d86798bbbc6b6&"></a>
+            <a class="button" style="background-image: url('310.png');" href="https://cdn.discordapp.com/attachments/1176618409484628039/1176618536559460443/New_Championcraft_mod_V4.1.3.mcaddon?ex=67c6b827&is=67c566a7&hm=8c520b4b3bfbe1a6358cf02bdee88ebfdee7960f61ecfc95262cdbb04a8848f8&"></a>
+        </div>
+    <!-- Footer -->
+    
+    <div class="footer"></div>
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.getElementById("mobileMenu");
+            mobileMenu.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

@@ -97,7 +97,7 @@
             padding: 50px 20px;
             text-align: center;
             overflow-y: auto;
-            backdrop-filter: blur(10px); /* Apply blur to the menu */
+            backdrop-filter: blur(10px);
             z-index: 999;
         }
 
@@ -121,7 +121,6 @@
             background-color: #333;
         }
 
-        /* Show Mobile Menu when active */
         .mobile-menu.active {
             display: block;
         }
@@ -157,12 +156,12 @@
 
         .link-button {
             display: block;
-            width: 462px;
-            height: 62.5px;
+            width: 450px;
+            height: 55px;
             text-align: center;
-            line-height: 62.5px;
+            line-height: 55px;
             text-decoration: none;
-            font-size: 22.5px;
+            font-size: 22px;
             font-weight: 0;
             color: #00A2E8;
             background: url('button.png') no-repeat center center/cover;
@@ -177,6 +176,7 @@
         .link-button:active {
             transform: translateY(1px);
         }
+
         @media (max-width: 768px) {
             .header .header-buttons {
                 display: none;
@@ -185,7 +185,13 @@
             .hamburger-menu {
                 display: block;
             }
+
+            .link-button {
+                width: 325px;
+                background: url('buttonsmall.png') no-repeat center center/cover;
+            }
         }
+
         /* Footer */
         .footer {
             position: fixed;
@@ -194,107 +200,107 @@
             font-size: 14px;
             color: #00A2E8;
         }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
-    <link rel="icon" href="icon.png" type="image/png">
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="icon" href="icon.png" type="image/png">
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <a href="https://simbiantech.github.io/Site/" class="title">Simbian's Attic</a>
-        <!-- Buttons Container on the Left -->
-        <div class="header-buttons">
-            <a href="https://simbiantech.github.io/Site/downloads/downloads.html" class="header-button">
-                <img src="downloads-icon.png" alt="Downloads Icon"> Downloads
-            </a>
-            <a href="https://simbiantech.github.io/Site/linktree/linktree.html" class="header-button">
-                <img src="linktree-icon.png" alt="Link Tree Icon"> Link Tree
-            </a>
-
-        </div>
-
-        <!-- Hamburger Menu (Image as Icon) -->
-        <div class="hamburger-menu" onclick="toggleMenu()">
-            <img src="ham.png" alt="Hamburger Menu Icon">
-        </div>
-    </div>
-
-    <!-- Fullscreen Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="https://simbiantech.github.io/Site/downloads/downloads.html">
+<!-- Header -->
+<div class="header">
+    <a href="https://simbiantech.github.io/Site/" class="title">Simbian's Attic</a>
+    <!-- Buttons Container on the Left -->
+    <div class="header-buttons">
+        <a href="https://simbiantech.github.io/Site/downloads/downloads.html" class="header-button">
             <img src="downloads-icon.png" alt="Downloads Icon"> Downloads
         </a>
-        <a href="https://simbiantech.github.io/Site/linktree/linktree.html">
+        <a href="https://simbiantech.github.io/Site/linktree/linktree.html" class="header-button">
             <img src="linktree-icon.png" alt="Link Tree Icon"> Link Tree
         </a>
 
     </div>
 
+    <!-- Hamburger Menu (Image as Icon) -->
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <img src="ham.png" alt="Hamburger Menu Icon">
+    </div>
+</div>
 
-    <!-- Link Tree Categories -->
-    <div class="container">
-        <div class="category">
-            <div class="category-title">- Main -</div>
-            <div class="link-group">
-                <a href="https://discord.gg/rKBt8swwwm" class="link-button">Discord Server</a>
-                <a href="https://www.reddit.com/r/SimbianGaming/" class="link-button">r/SimbianGaming</a>
-            </div>
-        </div>
-        <div class="category">
-            <div class="category-title">- Simbian Tech -</div>
-            <div class="link-group">
-                <a href="https://www.youtube.com/@SimbianTech" class="link-button">YouTube</a>
-                <a href="https://www.tiktok.com/@simbiantech" class="link-button">TikTok</a>
-                <a href="https://www.xiaohongshu.com/user/profile/6787e2a7000000000803fcab?xsec_token=YB3mAMrh5G90vO8x9R09uFZOzVHKFn1m7bF4ej6NAzpq0=&xsec_source=app_share&xhsshare=CopyLink&appuid=6787e2a7000000000803fcab&apptime=1737041611&share_id=ede27be4af2d4c38917ba1f262e6fc6f" class="link-button">Xiaohongshu</a>
-            </div>
-        </div>
-        <div class="category">
-            <div class="category-title">- Simbian Gaming -</div>
-            <div class="link-group">
-                <a href="https://www.youtube.com/@SimbianGaming" class="link-button">YouTube</a>
-                <a href="https://www.twitch.tv/simbian_gaming" class="link-button">Twitch</a>
-                <a href="https://www.tiktok.com/@simbiantech" class="link-button">TikTok</a>
-                <a href="https://www.reddit.com/user/Simbiangaming2/" class="link-button">Reddit account</a>
-            </div>
-        </div>
-        <div class="category">
-            <div class="category-title">- Simbian Stuff -</div>
-            <div class="link-group">
-                <a href="https://www.youtube.com/@SimbianStuff" class="link-button">YouTube</a>
-                <a href="https://www.tiktok.com/@simbianstuff" class="link-button">TikTok</a>
-                <a href="https://www.reddit.com/user/Simbiangaming/" class="link-button">Alt Reddit account</a>
-            </div>
-        </div>
-        <div class="category">
-            <div class="category-title">- Tom's Game Corner -</div>
-            <div class="link-group">
-                <a href="https://www.youtube.com/@SimbiansGameCorner" class="link-button">YouTube</a>
-                <a href="https://www.tiktok.com/@simbiansgamecorner" class="link-button">TikTok</a>
-            </div>
-        </div>
-        <div class="category">
-            <div class="category-title">- Simbian Ducks and Swans -</div>
-            <div class="link-group">
-                <a href="https://www.youtube.com/@SimbianDucksNSwans" class="link-button">Youtube</a>
-            </div>
-        </div>
-        <div class="category">
-            <div class="category-title">- Selling -</div>
-            <div class="link-group">
-                <a href="https://www.skelbiu.lt/pasiulymai/stl/" class="link-button">Skelbiu.lt</a>
-                <a href="https://www.vinted.lt/member/182381522" class="link-button">Vinted</a>
-                <a href="https://www.eneba.com/lt/user/enebian-6548e038ef3cc" class="link-button">Eneba</a>
-            </div>
+<!-- Fullscreen Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="https://simbiantech.github.io/Site/downloads/downloads.html">
+        <img src="downloads-icon.png" alt="Downloads Icon"> Downloads
+    </a>
+    <a href="https://simbiantech.github.io/Site/linktree/linktree.html">
+        <img src="linktree-icon.png" alt="Link Tree Icon"> Link Tree
+    </a>
+
+</div>
+
+
+<!-- Link Tree Categories -->
+<div class="container">
+    <div class="category">
+        <div class="category-title">- Main -</div>
+        <div class="link-group">
+            <a href="https://discord.gg/rKBt8swwwm" class="link-button">Discord Server</a>
+            <a href="https://www.reddit.com/r/SimbianGaming/" class="link-button">r/SimbianGaming</a>
         </div>
     </div>
+    <div class="category">
+        <div class="category-title">- Simbian Tech -</div>
+        <div class="link-group">
+            <a href="https://www.youtube.com/@SimbianTech" class="link-button">YouTube</a>
+            <a href="https://www.tiktok.com/@simbiantech" class="link-button">TikTok</a>
+            <a href="https://www.xiaohongshu.com/user/profile/6787e2a7000000000803fcab?xsec_token=YB3mAMrh5G90vO8x9R09uFZOzVHKFn1m7bF4ej6NAzpq0=&xsec_source=app_share&xhsshare=CopyLink&appuid=6787e2a7000000000803fcab&apptime=1737041611&share_id=ede27be4af2d4c38917ba1f262e6fc6f" class="link-button">Xiaohongshu</a>
+        </div>
+    </div>
+    <div class="category">
+        <div class="category-title">- Simbian Gaming -</div>
+        <div class="link-group">
+            <a href="https://www.youtube.com/@SimbianGaming" class="link-button">YouTube</a>
+            <a href="https://www.twitch.tv/simbian_gaming" class="link-button">Twitch</a>
+            <a href="https://www.tiktok.com/@simbiantech" class="link-button">TikTok</a>
+            <a href="https://www.reddit.com/user/Simbiangaming2/" class="link-button">Reddit account</a>
+        </div>
+    </div>
+    <div class="category">
+        <div class="category-title">- Simbian Stuff -</div>
+        <div class="link-group">
+            <a href="https://www.youtube.com/@SimbianStuff" class="link-button">YouTube</a>
+            <a href="https://www.tiktok.com/@simbianstuff" class="link-button">TikTok</a>
+            <a href="https://www.reddit.com/user/Simbiangaming/" class="link-button">Alt Reddit account</a>
+        </div>
+    </div>
+    <div class="category">
+        <div class="category-title">- Tom's Game Corner -</div>
+        <div class="link-group">
+            <a href="https://www.youtube.com/@SimbiansGameCorner" class="link-button">YouTube</a>
+            <a href="https://www.tiktok.com/@simbiansgamecorner" class="link-button">TikTok</a>
+        </div>
+    </div>
+    <div class="category">
+        <div class="category-title">- Simbian Ducks and Swans -</div>
+        <div class="link-group">
+            <a href="https://www.youtube.com/@SimbianDucksNSwans" class="link-button">Youtube</a>
+        </div>
+    </div>
+    <div class="category">
+        <div class="category-title">- Selling -</div>
+        <div class="link-group">
+            <a href="https://www.skelbiu.lt/pasiulymai/stl/" class="link-button">Skelbiu.lt</a>
+            <a href="https://www.vinted.lt/member/182381522" class="link-button">Vinted</a>
+            <a href="https://www.eneba.com/lt/user/enebian-6548e038ef3cc" class="link-button">Eneba</a>
+        </div>
+    </div>
+</div>
 
-    <!-- Footer -->
-    <div class="footer">Winter 8 (December 2024)</div>
-    <script>
-        function toggleMenu() {
-            const mobileMenu = document.getElementById("mobileMenu");
-            mobileMenu.classList.toggle("active");
-        }
-    </script>
+<!-- Footer -->
+<div class="footer">Spring 9 (March 2025)</div>
+<script>
+    function toggleMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("active");
+    }
+</script>
 </body>
 </html>
