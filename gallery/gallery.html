@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Simbian's Attic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lilita One','Arial Black', Arial, sans-serif;
+    background: url('background.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    color: #00A2E8;
+    min-height: 100vh;
+    margin-top: 85px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: top;
+            padding: 0px;
+            font-size: 125%;
+}
+        
+        /* Header */
+        .header {
+            height: 75px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            background: rgba(19, 28, 51, 0.7);
+            color: #00A2E8;
+            font-size: 30px;
+            font-weight: 0;
+            z-index: 1001;
+        }
+
+        .header .title {
+            cursor: pointer;
+            text-decoration: none;
+            color: #00A2E8;
+        }
+
+        .header .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header .header-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #00A2E8;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .header .header-button img {
+            width: 33px;
+            height: 33px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger-menu img {
+            width: 33px;
+            height: 33px;
+        }
+
+        /* Mobile Menu (Full Screen and Visible by Default) */
+        .mobile-menu {
+    display: none; /* Hidden by default */
+    position: fixed; /* Ensures it covers the full screen */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background-color: rgba(19, 28, 51, 0.9); /* Semi-transparent dark background */
+    color: #00A2E8;
+    padding: 50px 20px;
+    text-align: center;
+    overflow-y: auto; /* Allows scrolling if needed */
+    backdrop-filter: blur(20px); /* Adds a blurred background effect */
+    z-index: 1; /* Ensures it's above everything */
+    margin-top: 75px;
+}
+
+
+.mobile-menu a {
+            display: block;
+            color: #00A2E8;
+            font-size: 24px;
+            text-decoration: none;
+            margin: 20px 0;
+            padding: 10px;
+            font-weight: 500;
+        }
+
+
+        .mobile-menu a img {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #333;
+        }
+
+        /* Show Mobile Menu when active */
+        .mobile-menu.active {
+            display: block;
+        }
+
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 14px;
+            color: #00A2E8;
+        }
+        .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    width: 90%;
+
+    justify-content: center;
+}
+
+.gallery img {
+    
+    height: 200px; /* Set a fixed height */
+    width: 200px; /* Allow width to adjust based on aspect ratio */
+    object-fit: cover; /* Ensures image fills the height without stretching */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+        
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1002;
+            padding: 20px;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 0px;
+        }
+        
+        .lightbox-text {
+            color: white;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 1.2em;
+            word-wrap: break-word;
+            word-break: break-word;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+        }
+        
+        .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;  /* Adjust based on your image size */
+    height: 40px; /* Adjust based on your image size */
+    cursor: pointer;
+    border-radius: 0;
+        }
+        @media (max-width: 768px) {
+    .header .header-button {
+        display:none; /* Hide buttons on small screens */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger menu */
+        
+    }
+
+}
+    </style>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="icon.png" type="image/png">
+</head>
+<body>
+  <!-- Header -->
+     <div class="header">
+        <a href="https://simbiantech.github.io/Site/" class="title">Simbian's Attic</a>
+        <!-- Buttons Container on the Left -->
+        <div class="header-buttons">
+            <a href="https://simbiantech.github.io/Site/other/other.html" class="header-button">
+                <img src="others-icon.png" alt="other Icon"> Other
+            </a>
+            <a href="https://simbiantech.github.io/gallery/gallery.html" class="header-button">
+                <img src="gallery-icon.png" alt="Gallery Icon"> Gallery
+            </a>
+    
+            <a href="https://simbiantech.github.io/Site/downloads/downloads.html" class="header-button">
+                <img src="downloads-icon.png" alt="Downloads Icon"> Downloads
+            </a>
+            <a href="https://simbiantech.github.io/Site/linktree/linktree.html" class="header-button">
+                <img src="linktree-icon.png" alt="Link Tree Icon"> Link Tree
+            </a>
+    <!-- Hamburger Menu (Image as Icon) -->
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <img src="ham.png" alt="Hamburger Menu Icon">
+    </div>
+</div>
+
+<!-- Fullscreen Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="https://simbiantech.github.io/Site/other/other.html">
+        <img src="others-icon.png" alt="Other"> Other
+    </a>
+    <a href="https://simbiantech.github.io/Site/gallery/gallery.html">
+        <img src="gallery-icon.png" alt="Gallery"> Gallery
+    </a>
+
+    <a href="https://simbiantech.github.io/Site/downloads/downloads.html">
+        <img src="downloads-icon.png" alt="Downloads Icon"> Downloads
+    </a>
+    <a href="https://simbiantech.github.io/Site/linktree/linktree.html">
+        <img src="linktree-icon.png" alt="Link Tree Icon"> Link Tree
+    </a>
+        </div>
+    </div>
+    <div class="gallery">
+        <img src="20220122_131126.jpg" alt="Winter 1 (January/February 2022), Used in channel outros." onclick="openLightbox(this)">
+        <img src="20220226_144608.jpg" alt="Spring 1 (March/April 2022), Used in channel outros." onclick="openLightbox(this)">
+        <img src="20220418_173118.jpg" alt="Spring 2 (April/May 2022), Used in channel outros." onclick="openLightbox(this)">
+        <img src="20220601_170552.jpg" alt="Summer 1 (June 2022), Used in channel outros." onclick="openLightbox(this)">
+        <img src="20220609_233308.jpg" alt="Summer 2 (June/July 2022), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20220728_181825.jpg" alt="Spring 3 (August 2022), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20220815_113459.jpg" alt="Autumn 1 (September 2022), Used in channel outros. and stream screens. Taken in Birštono apžvalgos bokštas." onclick="openLightbox(this)">
+        <img src="20220930_123454 (1).jpg" alt="Autumn 2 (October 2022), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="911742256-20221030_174406.jpg" alt="Autumn 3 (November 2022), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="917337027-20221125_104006.jpg" alt="Winter 2 (December 2022), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="935963396-20230225_164816 (1).jpg" alt="Spring 3 (March 2023), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="947332000-20230424_131541.jpg" alt="Spring 5 (May 2023), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="951414501-20230531_140509.jpg" alt="Summer4 (June 2023), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20230708_222006.jpg" alt="Summer 5 (July 2023), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20230801_183842.jpg" alt="Summer 6 (August 2023), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20230828_220827.jpg" alt="Autumn 4 (September 2023), Used in channel outros and stream screens. Taken in Molėtų observatorija" onclick="openLightbox(this)">
+        <img src="20230930_134827.jpg" alt="Autumn 5 (October 2023), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20231122_083953.jpg" alt="Winter 5 (December 2023), Used in channel outros and stream screens. Taken in Laisvės Alėja, Kaunas" onclick="openLightbox(this)">
+        <img src="20231210_162753.jpg" alt="Winter 6 (January 2024), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20240126_144817.jpg" alt="Winter 7 (February 2024), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20240414_164833.jpg" alt="Spring 8 (May 2024), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20240531_104852.jpg" alt="Summer 7 (June 2024), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20240615_102448 (1).jpg" alt="Summer 8 (July 2024), Used in channel outros and stream screens." onclick="openLightbox(this)">
+    
+        <!-- Add more images as needed -->
+    </div>
+    
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <img src="close-icon.png" class="close" alt="Close Button" onclick="closeLightbox(event)">
+        <img id="lightbox-img" src="" alt="">
+        <div class="lightbox-text" id="lightbox-text"></div>
+    </div>
+    <div class="footer">Winter 8 (December 2024)</div>
+    <script>
+function toggleMenu() {
+    const mobileMenu = document.getElementById("mobileMenu");
+    mobileMenu.classList.toggle("active");
+}
+        function openLightbox(img) {
+            document.getElementById("lightbox").style.display = "flex";
+            document.getElementById("lightbox-img").src = img.src;
+            document.getElementById("lightbox-text").innerText = img.alt;
+        }
+        
+        function closeLightbox(event) {
+    // Close only if clicking the background or close button
+    if (event.target.id === "lightbox" || event.target.classList.contains("close")) {
+        document.getElementById("lightbox").style.display = "none";
+    }
+}
+        
+    </script>
+</body>
+</html>
