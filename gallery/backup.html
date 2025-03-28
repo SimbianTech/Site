@@ -44,50 +44,6 @@
             z-index: 1001;
         }
 
-        .album {
-            margin-top: -11px;
-            height: 46px;
-            position: fixed;
-            width: 100%;
-            padding: 20px;
-            
-            
-            
-            backdrop-filter: blur(10px);
-            background: rgba(19, 28, 51, 0.7);
-            color: #00A2E8;
-            font-size: 30px;
-            font-weight: 0;
-            z-index: 1;
-        }
-        .album .album-button {
-            margin-top: -4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-decoration: none;
-            font-size: 20px;
-            color: #00A2E8;
-            background: none;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .album-button button {
-    font-family: 'Lilita One', Arial, sans-serif;
-    font-size: 20px;
-    color: #00A2E8;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.album-button button.active {
-        
-        color: #99D9EA;
-        border-radius: 5px;
-}
         .header .title {
             cursor: pointer;
             text-decoration: none;
@@ -187,7 +143,7 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
     width: 90%;
-    margin-top: 50px;
+
     justify-content: center;
 }
 
@@ -247,23 +203,6 @@
     border-radius: 0;
         }
         @media (max-width: 768px) {
-
-    .album {
-        position: fixed; 
-        bottom: 0px;
-        overflow: auto;
-        white-space: nowrap;
-        align-items: center;
-        display: flex;
-        
-        overflow-x: auto;
-    
-        padding: 0 10px; /* 10px gap on left and right */
-    }
-    
-    .footer {
-        bottom: 47px;
-    }
     .header .header-button {
         display:none; /* Hide buttons on small screens */
     }
@@ -272,14 +211,6 @@
         display: block; /* Show hamburger menu */
         
     }
-    .gallery {
-    margin-top: 0px;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-}
-.gallery img {
-    width: 100%;
-    height: auto;
-}
 
 }
     </style>
@@ -311,23 +242,7 @@
         <img src="ham.png" alt="Hamburger Menu Icon">
     </div>
 </div>
-</div>
-<div class="album">
-    <div class="album-button">
-        
-        <button onclick="filterGallery('All')" data-season="All">All</button>
-        <div href="" class="album-button">|</div>
-        <button onclick="filterGallery('Winter')" data-season="Winter">Winter</button>
-        <div href="" class="album-button">|</div>
-        <button onclick="filterGallery('Spring')" data-season="Spring">Spring</button>
-        <div href="" class="album-button">|</div>
-        <button onclick="filterGallery('Summer')" data-season="Summer">Summer</button>
-        <div href="" class="album-button">|</div>
-        <button onclick="filterGallery('Autumn')" data-season="Autumn">Autumn</button>
-        
-       
-    </div>
-</div>
+
 <!-- Fullscreen Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
     <a href="https://simbiantech.github.io/Site/other/other.html">
@@ -345,31 +260,30 @@
     </a>
         </div>
     </div>
-</div>
     <div class="gallery">
-        <img src="20220122_131126.jpg" alt="Winter 1 (January/February 2022), Used in channel outros." data-season="Winter" onclick="openLightbox(this)">
-        <img src="20220226_144608.jpg" alt="Spring 1 (March/April 2022), Used in channel outros." data-season="Spring" onclick="openLightbox(this)">
-        <img src="20220418_173118.jpg" alt="Spring 2 (April/May 2022), Used in channel outros." data-season="Spring" onclick="openLightbox(this)">
-        <img src="20220601_170552.jpg" alt="Summer 1 (June 2022), Used in channel outros." data-season="Summer" onclick="openLightbox(this)">
-        <img src="20220609_233308.jpg" alt="Summer 2 (June/July 2022), Used in channel outros and stream screens." data-season="Summer" onclick="openLightbox(this)">
-        <img src="20220728_181825.jpg" alt="Summer 3 (August 2022), Used in channel outros and stream screens." data-season="Summer" onclick="openLightbox(this)">
-        <img src="20220815_113459.jpg" alt="Autumn 1 (September 2022), Used in channel outros. and stream screens. Taken in Birštono apžvalgos bokštas." data-season="Autumn" onclick="openLightbox(this)">
-        <img src="20220930_123454 (1).jpg" alt="Autumn 2 (October 2022), Used in channel outros and stream screens." data-season="Autumn" onclick="openLightbox(this)">
-        <img src="911742256-20221030_174406.jpg" alt="Autumn 3 (November 2022), Used in channel outros and stream screens." data-season="Autumn" onclick="openLightbox(this)">
-        <img src="917337027-20221125_104006.jpg" alt="Winter 2 (December 2022), Used in channel outros and stream screens." data-season="Winter" onclick="openLightbox(this)">
-        <img src="935963396-20230225_164816 (1).jpg" alt="Spring 3 (March 2023), Used in channel outros and stream screens." data-season="Spring" onclick="openLightbox(this)">
-        <img src="947332000-20230424_131541.jpg" alt="Spring 5 (May 2023), Used in channel outros and stream screens." data-season="Spring" onclick="openLightbox(this)">
-        <img src="951414501-20230531_140509.jpg" alt="Summer 4 (June 2023), Used in channel outros and stream screens." data-season="Summer" onclick="openLightbox(this)">
-        <img src="20230708_222006.jpg" alt="Summer 5 (July 2023), Used in channel outros and stream screens." data-season="Summer" onclick="openLightbox(this)">
-        <img src="20230801_183842.jpg" alt="Summer 6 (August 2023), Used in channel outros and stream screens." data-season="Summer" onclick="openLightbox(this)">
-        <img src="20230828_220827.jpg" alt="Autumn 4 (September 2023), Used in channel outros and stream screens. Taken in Molėtų observatorija" data-season="Autumn" onclick="openLightbox(this)">
-        <img src="20230930_134827.jpg" alt="Autumn 5 (October 2023), Used in channel outros and stream screens." data-season="Autumn" onclick="openLightbox(this)">
-        <img src="20231122_083953.jpg" alt="Winter 5 (December 2023), Used in channel outros and stream screens. Taken in Laisvės Alėja, Kaunas" data-season="Winter" onclick="openLightbox(this)">
-        <img src="20231210_162753.jpg" alt="Winter 6 (January 2024), Used in channel outros and stream screens." data-season="Winter" onclick="openLightbox(this)">
-        <img src="20240126_144817.jpg" alt="Winter 7 (February 2024), Used in channel outros and stream screens." data-season="Winter" onclick="openLightbox(this)">
-        <img src="20240414_164833.jpg" alt="Spring 8 (May 2024), Used in channel outros and stream screens." data-season="Spring" onclick="openLightbox(this)">
-        <img src="20240531_104852.jpg" alt="Summer 7 (June 2024), Used in channel outros and stream screens." data-season="Summer" onclick="openLightbox(this)">
-        <img src="20240615_102448 (1).jpg" alt="Summer 8 (July 2024), Used in channel outros and stream screens." data-season="Summer" onclick="openLightbox(this)">
+        <img src="20220122_131126.jpg" alt="Winter 1 (January/February 2022), Used in channel outros." onclick="openLightbox(this)">
+        <img src="20220226_144608.jpg" alt="Spring 1 (March/April 2022), Used in channel outros." onclick="openLightbox(this)">
+        <img src="20220418_173118.jpg" alt="Spring 2 (April/May 2022), Used in channel outros." onclick="openLightbox(this)">
+        <img src="20220601_170552.jpg" alt="Summer 1 (June 2022), Used in channel outros." onclick="openLightbox(this)">
+        <img src="20220609_233308.jpg" alt="Summer 2 (June/July 2022), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20220728_181825.jpg" alt="Spring 3 (August 2022), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20220815_113459.jpg" alt="Autumn 1 (September 2022), Used in channel outros. and stream screens. Taken in Birštono apžvalgos bokštas." onclick="openLightbox(this)">
+        <img src="20220930_123454 (1).jpg" alt="Autumn 2 (October 2022), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="911742256-20221030_174406.jpg" alt="Autumn 3 (November 2022), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="917337027-20221125_104006.jpg" alt="Winter 2 (December 2022), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="935963396-20230225_164816 (1).jpg" alt="Spring 3 (March 2023), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="947332000-20230424_131541.jpg" alt="Spring 5 (May 2023), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="951414501-20230531_140509.jpg" alt="Summer4 (June 2023), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20230708_222006.jpg" alt="Summer 5 (July 2023), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20230801_183842.jpg" alt="Summer 6 (August 2023), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20230828_220827.jpg" alt="Autumn 4 (September 2023), Used in channel outros and stream screens. Taken in Molėtų observatorija" onclick="openLightbox(this)">
+        <img src="20230930_134827.jpg" alt="Autumn 5 (October 2023), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20231122_083953.jpg" alt="Winter 5 (December 2023), Used in channel outros and stream screens. Taken in Laisvės Alėja, Kaunas" onclick="openLightbox(this)">
+        <img src="20231210_162753.jpg" alt="Winter 6 (January 2024), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20240126_144817.jpg" alt="Winter 7 (February 2024), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20240414_164833.jpg" alt="Spring 8 (May 2024), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20240531_104852.jpg" alt="Summer 7 (June 2024), Used in channel outros and stream screens." onclick="openLightbox(this)">
+        <img src="20240615_102448 (1).jpg" alt="Summer 8 (July 2024), Used in channel outros and stream screens." onclick="openLightbox(this)">
     
         <!-- Add more images as needed -->
     </div>
@@ -397,34 +311,7 @@ function toggleMenu() {
         document.getElementById("lightbox").style.display = "none";
     }
 }
-document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-        document.getElementById("lightbox").style.display = "none";
-    }
-});
-function filterGallery(season) {
-        const images = document.querySelectorAll(".gallery img");
-        images.forEach(img => {
-            if (season === "All" || img.dataset.season.includes(season)) {
-                img.style.display = "block";
-            } else {
-                img.style.display = "none";
-            }
-        });
-
-        // Remove active class from all buttons
-        document.querySelectorAll(".album-button button").forEach(btn => {
-            btn.classList.remove("active");
-        });
-
-        // Add active class to the clicked button
-        document.querySelector(`button[data-season='${season}']`).classList.add("active");
-    }
-
-    // Set "All" as active on load
-    document.addEventListener("DOMContentLoaded", () => {
-        document.querySelector("button[data-season='All']").classList.add("active");
-    });
+        
     </script>
 </body>
 </html>
