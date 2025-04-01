@@ -212,7 +212,7 @@
     
     <!-- Fullscreen Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="https://simbiantech.github.io/Site/other/other.html">
+        <a href="https://simbiantech.github.io/Site/other/others.html">
             <img src="https://simbiantech.github.io/Site/resources/other-icon.webp" alt="Other"> Other
         </a>
         <a href="https://simbiantech.github.io/Site/gallery/gallery.html">
@@ -387,6 +387,10 @@
             }
             document.getElementById("user-input").value = "";
         }
+        function toggleMenu() {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("active");
+    }
     </script>
 </body>
 </html>
