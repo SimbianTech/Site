@@ -232,44 +232,7 @@
 
            /*Test HMTL button*/
 
-           .banner {
-      background-color: #3a3a3a;
-      border: 10px solid #00bfff;
-      border-image: repeating-linear-gradient(
-        90deg,
-        #00bfff,
-        #00bfff 10px,
-        #3a3a3a 10px,
-        #3a3a3a 20px
-      ) 10;
-      padding: 30px;
-      color: #00bfff;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 150px;
-      box-sizing: border-box;
-      position: relative;
-    }
-
-
-    .info {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .info-left {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .info-right {
-      text-align: right;
-    }
+           
     
     .styled-button {
     background-image: url('bg-dark.png'); /* Or any plain dark image */
@@ -281,38 +244,63 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;
+    padding: 2%;
     position: relative;
     text-decoration: none;
     font-family: 'Lilita One', cursive;
 }
 
 .styled-button .main-title {
-    font-size: 36pt;
+    font-size: calc(2.8vw + 1vh);
 }
 
 .styled-button .left-info,
 .styled-button .right-info {
     display: flex;
     flex-direction: column;
-    font-size: 20pt;
+    font-size: calc(1.45vw + 1vh);
 }
 
 .styled-button .left-info {
     position: absolute;
-    bottom: 10px;
-    left: 20px;
+    bottom: 8%;
+    right: 77%;
     text-align: left;
 }
 
 .styled-button .right-info {
     position: absolute;
-    bottom: 10px;
-    right: 20px;
+    bottom: 8%;
+    right: 2%;
     text-align: right;
+}
+@media (min-width: 1420px) {
+    .styled-button {
+        padding:20px
+        
+    }
+    .styled-button .main-title {
+    font-size:36pt;
+}
+.styled-button .left-info,
+.styled-button .right-info {
+    font-size:18pt;
+}
+.styled-button .left-info {
+    bottom: 8%;
+    right: 83%;
+}
 }
 /* Media query for screen width below 900px */
 @media (max-width: 900px) {
+    .styled-button .main-title {
+        font-size: calc(4.3vw + 1vh);
+}
+.styled-button .left-info,
+.styled-button .right-info {
+    font-size: calc(2vw + 1vh);
+}
+
     .main-container {
         flex-direction: column; /* Stack left and right sections vertically */
     }
