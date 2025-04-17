@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Simbian's Attic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lilita One','Arial Black', Arial, sans-serif;
+    background-color: #000000;
+    color: #00A2E8;
+    min-height: 100vh;
+    margin-top: 85px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: top;
+            padding: 0px;
+            font-size: 125%;
+            padding-bottom:50px
+}
+        
+        /* Header */
+        .header {
+            height: 75px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            background: rgba(19, 28, 51, 0.7);
+            color: #00A2E8;
+            font-size: 30px;
+            font-weight: 0;
+            z-index: 1001;
+        }
+
+        .album {
+            margin-top: -11px;
+            height: 46px;
+            position: fixed;
+            width: 100%;
+            padding: 20px;
+            
+            
+            
+            backdrop-filter: blur(10px);
+            background: rgba(19, 28, 51, 0.7);
+            color: #00A2E8;
+            font-size: 30px;
+            font-weight: 0;
+            z-index: 1;
+        }
+        .album .album-button {
+            margin-top: -4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #00A2E8;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .album-button button {
+    font-family: 'Lilita One', Arial, sans-serif;
+    font-size: 20px;
+    color: #00A2E8;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+}
+.album-button button.active {
+        
+        color: #99D9EA;
+        border-radius: 5px;
+}
+        .header .title {
+            cursor: pointer;
+            text-decoration: none;
+            color: #00A2E8;
+        }
+
+        .header .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header .header-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #00A2E8;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .header .header-button img {
+            width: 33px;
+            height: 33px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger-menu img {
+            width: 33px;
+            height: 33px;
+        }
+
+        /* Mobile Menu (Full Screen and Visible by Default) */
+        .mobile-menu {
+    display: none; /* Hidden by default */
+    position: fixed; /* Ensures it covers the full screen */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background-color: rgba(19, 28, 51, 0.9); /* Semi-transparent dark background */
+    color: #00A2E8;
+    padding: 50px 20px;
+    text-align: center;
+    overflow-y: auto; /* Allows scrolling if needed */
+    backdrop-filter: blur(20px); /* Adds a blurred background effect */
+    z-index: 1; /* Ensures it's above everything */
+    margin-top: 75px;
+}
+
+
+.mobile-menu a {
+            display: block;
+            color: #00A2E8;
+            font-size: 24px;
+            text-decoration: none;
+            margin: 20px 0;
+            padding: 10px;
+            font-weight: 500;
+        }
+
+
+        .mobile-menu a img {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #333;
+        }
+
+        /* Show Mobile Menu when active */
+        .mobile-menu.active {
+            display: block;
+        }
+
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 14px;
+            color: #00A2E8;
+        }
+        .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 5px));
+    gap: 10px;
+    width: 90%;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.gallery img {
+    
+    height: 200px; /* Set a fixed height */
+    width: 200px; /* Allow width to adjust based on aspect ratio */
+    object-fit: cover; /* Ensures image fills the height without stretching */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.2s;
+    
+}
+        
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1002;
+            padding: 20px;
+        }
+        
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 0px;
+        }
+        
+        .lightbox-text {
+            color: white;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 1.2em;
+            word-wrap: break-word;
+            word-break: break-word;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+        }
+        
+        
+            .lightbox-btn {
+    position: absolute;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Close button stays on the right */
+.close {
+    right: 20px;
+}
+
+/* Download button placed to the left of Close */
+.download-btn {
+    position: absolute;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    right: 70px;
+    display:none;
+}
+
+/* Open in New Tab button placed to the left of Download */
+.open-btn {
+    position: absolute;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    right: 70px;
+}
+        @media (max-width: 768px) {
+
+    .album {
+        position: fixed; 
+        bottom: 0px;
+        overflow: auto;
+        white-space: nowrap;
+        align-items: center;
+        display: flex;
+        
+        overflow-x: auto;
+    
+        padding: 0 10px; /* 10px gap on left and right */
+    }
+    
+    .footer {
+        bottom: 47px;
+    }
+    .header .header-button {
+        display:none; /* Hide buttons on small screens */
+    }
+
+    .hamburger-menu {
+        display: block; /* Show hamburger menu */
+        
+    }
+    .gallery {
+    margin-top: 0px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="icon" href="https://simbiantech.github.io/Site/resources/icon.webp" type="image/png">
+</head>
+<body>
+<!-- Header -->
+<div class="header">
+    <a href="https://simbiantech.github.io/Site/" class="title">Simbian's Attic</a>
+    <!-- Buttons Container on the Left -->
+    <div class="header-buttons">
+        <a href="https://simbiantech.github.io/Site/other/other.html" class="header-button">
+            <img src="https://simbiantech.github.io/Site/resources/others-icon.webp" alt="other Icon"> Other
+        </a>
+        <a href="https://simbiantech.github.io/Site/gallery/gallery.html" class="header-button">
+            <img src="https://simbiantech.github.io/Site/resources/gallery-icon.webp" alt="Gallery Icon"> Gallery
+        </a>
+        <a href="https://simbiantech.github.io/Site/downloads/downloads.html" class="header-button">
+            <img src="https://simbiantech.github.io/Site/resources/downloads-icon.webp" alt="Downloads Icon"> Downloads
+        </a>
+        <a href="https://simbiantech.github.io/Site/linktree/linktree.html" class="header-button">
+            <img src="https://simbiantech.github.io/Site/resources/linktree-icon.webp" alt="Link Tree Icon"> Link Tree
+        </a>
+    </div>
+
+    <!-- Hamburger Menu (Image as Icon) -->
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <img src="https://simbiantech.github.io/Site/resources/ham.webp" alt="Hamburger Menu Icon">
+    </div>
+</div>
+
+<!-- Fullscreen Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="https://simbiantech.github.io/Site/other/other.html">
+        <img src="https://simbiantech.github.io/Site/resources/others-icon.webp" alt="Other"> Other
+    </a>
+    <a href="https://simbiantech.github.io/Site/gallery/gallery.html">
+        <img src="https://simbiantech.github.io/Site/resources/gallery-icon.webp" alt="Gallery"> Gallery
+    </a>
+    <a href="https://simbiantech.github.io/Site/downloads/downloads.html">
+        <img src="https://simbiantech.github.io/Site/resources/downloads-icon.webp" alt="Downloads Icon"> Downloads
+    </a>
+    <a href="https://simbiantech.github.io/Site/linktree/linktree.html">
+        <img src="https://simbiantech.github.io/Site/resources/linktree-icon.webp" alt="Link Tree Icon"> Link Tree
+    </a>
+</div>
+</div>
+
+<div class="album">
+    <div class="album-button">
+        
+        <button onclick="filterGallery('All')" data-season="All">All</button>
+        <div href="" class="album-button">|</div>
+        <button onclick="filterGallery('ZF4')" data-season="ZF4">Samsung Galaxy Z Fold 4</button>
+        <div href="" class="album-button">|</div>
+        <button onclick="filterGallery('1020')" data-season="1020">Nokia Lumia 1020</button>
+        <div href="" class="album-button">|</div>
+        <button onclick="filterGallery('950')" data-season="950">Microsoft Lumia 950 XL</button>
+       
+    </div>
+</div>
+<!-- Fullscreen Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="https://simbiantech.github.io/Site/other/other.html">
+        <img src="others-icon.png" alt="Other"> Other
+    </a>
+    <a href="https://simbiantech.github.io/Site/gallery/gallery.html">
+        <img src="gallery-icon.png" alt="Gallery"> Gallery
+    </a>
+
+    <a href="https://simbiantech.github.io/Site/downloads/downloads.html">
+        <img src="downloads-icon.png" alt="Downloads Icon"> Downloads
+    </a>
+    <a href="https://simbiantech.github.io/Site/linktree/linktree.html">
+        <img src="linktree-icon.png" alt="Link Tree Icon"> Link Tree
+    </a>
+        </div>
+    </div>
+</div>
+    <div class="gallery">
+        <img src="ZF4 (1).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (2).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (3).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (4).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (5).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (6).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (7).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (8).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (9).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (10).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (11).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (12).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (13).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (14).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (15).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (16).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (17).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (18).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (19).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (20).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (21).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (22).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (23).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (24).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (25).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+        <img src="ZF4 (26).jpg" alt="Taken on Samsung Galaxy Z Fold 4" data-season="ZF4" onclick="openLightbox(this)"loading="lazy">
+
+
+        <!-- Candidates -->
+        <img src="1020 (1).jpg" alt="Taken on Nokia Lumia 1020" data-season="1020" onclick="openLightbox(this)"loading="lazy">
+        <img src="1020 (2).jpg" alt="Taken on Nokia Lumia 1020" data-season="1020" onclick="openLightbox(this)"loading="lazy">
+        <img src="1020 (3).jpg" alt="Taken on Nokia Lumia 1020" data-season="1020" onclick="openLightbox(this)"loading="lazy">
+        <img src="1020 (4).jpg" alt="Taken on Nokia Lumia 1020" data-season="1020" onclick="openLightbox(this)"loading="lazy">
+        <img src="1020 (5).jpg" alt="Taken on Nokia Lumia 1020" data-season="1020" onclick="openLightbox(this)"loading="lazy">
+        <img src="1020 (6).jpg" alt="Taken on Nokia Lumia 1020" data-season="1020" onclick="openLightbox(this)"loading="lazy">
+        <img src="1020 (7).jpg" alt="Taken on Nokia Lumia 1020" data-season="1020" onclick="openLightbox(this)"loading="lazy">
+        <img src="1020 (8).jpg" alt="Taken on Nokia Lumia 1020" data-season="1020" onclick="openLightbox(this)"loading="lazy">
+        <img src="1020 (9).jpg" alt="Taken on Nokia Lumia 1020" data-season="1020" onclick="openLightbox(this)"loading="lazy">
+    
+        <!-- Other -->
+        <img src="950 (1).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (2).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (3).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (4).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (5).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (6).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (7).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (8).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (9).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (10).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (11).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (12).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (13).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (14).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (15).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (16).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (17).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        <img src="950 (18).jpg" alt="Taken on Microsoft Lumia 950 XL" data-season="950" onclick="openLightbox(this)"loading="lazy">
+        
+    </div>
+    
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <!-- Close Button -->
+        <img src="close-icon.png" class="lightbox-btn close" alt="Close Button" onclick="closeLightbox(event)">
+        
+    
+        <!-- Download Button -->
+        <a id="download-btn" href="#" download>
+            <img src="https://simbiantech.github.io/Site/resources/external.webp" class="download-btn" alt="Download Image">
+            
+        </a>
+    
+        <!-- Open in New Tab Button -->
+        <a id="open-btn" href="#" target="_blank">
+            <img src="https://simbiantech.github.io/Site/resources/external.webp" class="open-btn" alt="Open in New Tab">
+            
+        </a>
+    
+        <!-- Lightbox Image -->
+        <img id="lightbox-img" src="" alt="">
+        <div class="lightbox-text" id="lightbox-text"></div>
+    </div>
+    <div class="footer"></div>
+    <script>
+       function openLightbox(img) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = img.src;
+    document.getElementById("lightbox-text").innerText = img.alt;
+
+    let webpSrc = img.src;
+    document.getElementById("lightbox-img").src = webpSrc;
+
+    
+
+    let filename = webpSrc.split('/').pop().replace('.webp', '');
+
+    let highResUrl = "Full/" + filename + ".jpg";
+
+    document.getElementById("download-btn").href = highResUrl;
+    document.getElementById("open-btn").href = highResUrl;
+        
+            const alternativeUrl = getAlternativeImageUrl(img.src);
+            document.getElementById("download-btn").onclick = function() {
+                const link = document.createElement("a");
+                link.href = alternativeUrl;
+                link.download = alternativeUrl.split('/').pop();
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            };
+            let downloadBtn = document.getElementById("download-btn");
+    downloadBtn.href = highResUrl;
+    downloadBtn.download = filename + ".jpg"; // Forces file download
+            document.getElementById("open-tab-btn").onclick = function() {
+                window.open(alternativeUrl, "_blank");
+            };
+        }
+        
+        function getAlternativeImageUrl(currentUrl) {
+            // Modify this function to return the appropriate alternative image URL
+            return currentUrl.replace(".webp", "-highres.jpg"); // Example: replaces "image.jpg" with "image-highres.jpg"
+        }
+function toggleMenu() {
+    const mobileMenu = document.getElementById("mobileMenu");
+    mobileMenu.classList.toggle("active");
+}
+        
+function closeLightbox(event) {
+    if (event.target.id === "lightbox" || event.target.classList.contains("close")) {
+        document.getElementById("lightbox").style.display = "none";
+    }
+}
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        document.getElementById("lightbox").style.display = "none";
+    }
+});
+function filterGallery(season) {
+        const images = document.querySelectorAll(".gallery img");
+        images.forEach(img => {
+            if (season === "All" || img.dataset.season.includes(season)) {
+                img.style.display = "block";
+            } else {
+                img.style.display = "none";
+            }
+        });
+
+        // Remove active class from all buttons
+        document.querySelectorAll(".album-button button").forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        // Add active class to the clicked button
+        document.querySelector(`button[data-season='${season}']`).classList.add("active");
+    }
+
+    // Set "All" as active on load
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("button[data-season='All']").classList.add("active");
+    });
+    </script>
+</body>
+</html>
