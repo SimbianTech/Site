@@ -164,7 +164,7 @@
             font-size: 22px;
             font-weight: 0;
             color: #00A2E8;
-            background: url('button.png') no-repeat center center/cover;
+            background: url('https://simbiantech.github.io/Site/resources/button.webp') no-repeat center center/cover;
             border: none;
             transition: transform 0.2s;
         }
@@ -175,6 +175,120 @@
 
         .link-button:active {
             transform: translateY(1px);
+        }
+        /* Popup Styles */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.205);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.bottom-popup {
+    position: relative;
+    background-color: rgba(19, 28, 51, 0.686);
+    color: #00A2E8;
+    padding: 30px 20px 80px;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.226);
+    background-repeat: repeat-x;
+    background-position: top center;
+    background-size: 10px auto;
+    background-image: url('div2.png');
+    overflow: hidden; /* Ensure pseudo-elements don’t spill */
+}
+
+.bottom-popup::before,
+.bottom-popup::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 10px; /* or whatever width your div.png is */
+    height: 100%;
+    background-image: url('div.png');
+    background-repeat: repeat-y;
+    background-size: auto 10px;
+    z-index: 1;
+}
+
+.bottom-popup::before {
+    left: 0;
+}
+
+.bottom-popup::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background-image: url('div.png');
+    background-repeat: repeat-y;
+    background-size: auto 10px;
+    pointer-events: none;
+    z-index: 2;
+    background-position: right bottom;
+}
+.popup-border-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-image: url('div2.png');
+    background-repeat: repeat-x;
+    background-size: 10px auto;
+    pointer-events: none;
+    z-index: 2;
+    background-position: left bottom;
+}
+
+
+.popup-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.popup-text {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.popup-dismiss {
+    position: absolute;
+    bottom: 15px;
+    transform: translateX(-50%);
+    bottom: 15px;
+    left: 50%;
+    width: 325px;
+    height: 55px;
+    background: url('https://simbiantech.github.io/Site/resources/buttonsmall.webp') no-repeat center center / contain;
+    border: none;
+    cursor: pointer;
+    color: #00A2E8;
+    font-family: 'Lilita One', cursive;
+    font-size: 22px;
+    font-weight: 0;
+    text-align: center;
+    transition: transform 0.2s;
+        }
+
+        .popup-dismiss:hover {
+            transform: translate(-50%, -3px);
+            
+        }
+
+        .popup-dismiss:active {
+            transform: translate(-50%, 1px);
         }
 
         @media (max-width: 768px) {
@@ -188,8 +302,9 @@
 
             .link-button {
                 width: 325px;
-                background: url('buttonsmall.png') no-repeat center center/cover;
+                background: url('https://simbiantech.github.io/Site/resources/buttonsmall.webp') no-repeat center center/cover;
             }
+            
         }
 
         /* Footer */
@@ -301,8 +416,18 @@
             <a href="https://www.skelbiu.lt/pasiulymai/stl/" class="link-button">Skelbiu.lt</a>
             <a href="https://www.vinted.lt/member/182381522" class="link-button">Vinted</a>
             <a href="https://www.eneba.com/lt/user/enebian-6548e038ef3cc" class="link-button">Eneba</a>
+            <a href="https://www.facebook.com/marketplace/profile/61559134841010" class="link-button">Facebook Marketplace</a>
         </div>
     </div>
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="bottom-popup">
+            <p class="popup-title">ℹ️ Selling information</p>
+            <p class="popup-text">Starting April 27th 2025 at 21:00 Eeastern European Summer Time you will no longer be able to pouchase goods from my Skelbiu.lt, Vinted, Eneba, and Facebook Marketplace pages, however from time to time sales may open up on weekends only on Eneba and Vinted. Selling operations will be returning to normal starting February 2026. Sorry for the inconveniences.</p>
+            <p class="popup-title">ℹ️ Aditional information regarding content creation</p>
+            <p class="popup-text">The Announcements Part 1 (2025) will soon be published on Simbian Gaming, discussing the content creation situation during military service. </p>
+            <button class="popup-dismiss" onclick="dismissPopup()">OK</button>
+            <div class="popup-border-bottom"></div>
+        </div>
 </div>
 
 <!-- Footer -->
@@ -312,6 +437,10 @@
         const mobileMenu = document.getElementById("mobileMenu");
         mobileMenu.classList.toggle("active");
     }
+    function dismissPopup() {
+    const overlay = document.getElementById("popupOverlay");
+    overlay.style.display = "none";
+}
 </script>
 </body>
 </html>

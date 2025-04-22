@@ -225,9 +225,124 @@
             left: 10px;
             font-size: 14px;
             color: #00A2E8;
-        
+        }
 
-    }
+            /* Popup Styles */
+/* Popup Styles */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.205);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.bottom-popup {
+    position: relative;
+    background-color: rgba(19, 28, 51, 0.686);
+    color: #00A2E8;
+    padding: 30px 20px 80px;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.226);
+    background-repeat: repeat-x;
+    background-position: top center;
+    background-size: 10px auto;
+    background-image: url('div2.png');
+    overflow: hidden; /* Ensure pseudo-elements don’t spill */
+}
+
+.bottom-popup::before,
+.bottom-popup::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 10px; /* or whatever width your div.png is */
+    height: 100%;
+    background-image: url('div.png');
+    background-repeat: repeat-y;
+    background-size: auto 10px;
+    z-index: 1;
+}
+
+.bottom-popup::before {
+    left: 0;
+}
+
+.bottom-popup::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background-image: url('div.png');
+    background-repeat: repeat-y;
+    background-size: auto 10px;
+    pointer-events: none;
+    z-index: 2;
+    background-position: right bottom;
+}
+.popup-border-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-image: url('div2.png');
+    background-repeat: repeat-x;
+    background-size: 10px auto;
+    pointer-events: none;
+    z-index: 2;
+    background-position: left bottom;
+}
+
+
+.popup-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.popup-text {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.popup-dismiss {
+    position: absolute;
+    bottom: 15px;
+    transform: translateX(-50%);
+    bottom: 15px;
+    left: 50%;
+    width: 325px;
+    height: 55px;
+    background: url('https://simbiantech.github.io/Site/resources/buttonsmall.webp') no-repeat center center / contain;
+    border: none;
+    cursor: pointer;
+    color: #00A2E8;
+    font-family: 'Lilita One', cursive;
+    font-size: 22px;
+    font-weight: 0;
+    text-align: center;
+    transition: transform 0.2s;
+        }
+
+        .popup-dismiss:hover {
+            transform: translate(-50%, -3px);
+            
+        }
+
+        .popup-dismiss:active {
+            transform: translate(-50%, 1px);
+        }
+    
 /* Media query for screen width below 900px */
 @media (max-width: 900px) {
     .main-container {
@@ -340,6 +455,14 @@
     
             <div class="title">More backups are coming soon</div>
             
+            <div class="popup-overlay" id="popupOverlay">
+                <div class="bottom-popup">
+                    <p class="popup-title">⚠️ Warning!</p>
+                    <p class="popup-text">⚠️ I'm not responsible for any damage and loss of data caused to your device, use these apps at your own risk.</p>
+                    <button class="popup-dismiss" onclick="dismissPopup()">Accept the risk</button>
+                    <div class="popup-border-bottom"></div>
+                </div>
+            </div>
         </div>
     <!-- Footer -->
     
@@ -349,6 +472,11 @@
             const mobileMenu = document.getElementById("mobileMenu");
             mobileMenu.classList.toggle("active");
         }
+    
+        function dismissPopup() {
+    const overlay = document.getElementById("popupOverlay");
+    overlay.style.display = "none";
+}
     </script>
 </body>
 </html>
