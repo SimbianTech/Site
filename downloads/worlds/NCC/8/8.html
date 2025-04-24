@@ -228,6 +228,100 @@
         
 
     }
+    #popup {
+      position: absolute;
+      width: 366px;
+      height: 169px;
+      top: 100px;
+      left: 100px;
+      display: none;
+      cursor: default;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.17); /* Dark transparent background */
+  backdrop-filter: blur(8px);     /* Glass-like blur */
+  border-radius: 8px;            /* Rounded corners */
+  overflow: hidden;               /* Keeps image rounded too */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.501); /* Optional soft shadow */
+   transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+    }
+
+    #popupHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 100%;
+  background: transparent; /* makes it invisible */
+  z-index: 10; /* make sure it's on top of the image */
+}
+
+    #popupImage {
+      width: 366px;
+      height: 169px;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s ease;
+}
+#popupClose {
+  position: absolute;
+
+  right: 7px;
+  width: 47px;
+  height: 20px;
+  background: url('xblank.png') no-repeat center/contain;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 20;
+}
+#popupClose:hover {
+  background-image: url('xhover.png');
+  box-shadow: 0 0 6px 2px rgba(255, 38, 0, 0.76); /* Red glow on hover */
+
+}
+
+#popupClose:active {
+  background-image: url('xhold.png');
+  
+}
+#popupLinkButton {
+  position: absolute;
+  bottom: 19px;
+  right: 19px;
+  width: 111px;
+  height: 21px;
+  background: url('Lb.png') no-repeat center/contain;
+  display: block;
+  cursor: pointer;
+  z-index: 20;
+}
+
+#popupLinkButton:hover {
+  background-image: url('Lbhover.png');
+}
+
+#popupLinkButton:active {
+  background-image: url('Lbhold.png');
+}
+#day-counter {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  padding: 0 15px;
+  font-size: 30px;
+  color: #00A2E8;
+  font-family: 'Lilita One', cursive;
+  z-index: 900;
+}
+#popupClose, #popupLinkButton {
+  transition: background-image 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  
+  opacity: 1;
+}
+#popupClose:hover {
+transition: box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
 /* Media query for screen width below 900px */
 @media (max-width: 900px) {
     .main-container {
@@ -372,6 +466,14 @@
             <div class="title">More backups are available</div>
             <div class="text">Request other downloads in my discord server (find it in Link Tree)</div>
         </div>
+        <div id="popup">
+
+            <button id="popupClose"></button>
+            <div id="popupHeader"></div>
+            <img id="popupImage" src="Lactive.png" alt="Popup Image"/>
+            <div id="day-counter">Loading...</div>
+            <a id="popupLinkButton" href="https://www.twitch.tv/lunamcclain" target="_blank" rel="noopener noreferrer"></a>
+          </div>
     <!-- Footer -->
     
     <div class="footer"></div>
@@ -380,6 +482,108 @@
             const mobileMenu = document.getElementById("mobileMenu");
             mobileMenu.classList.toggle("active");
         }
+
+        const popup = document.getElementById('popup');
+  const popupImage = document.getElementById('popupImage');
+  const header = document.getElementById('popupHeader');
+
+  let image1 = 'Lactive.png'; // Replace with your image path
+  let image2 = 'Linactive.png'; // Replace with second image path
+  let isOriginalImage = true;
+
+  // Dragging logic
+  let offsetX, offsetY, isDragging = false;
+
+  header.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    offsetX = e.clientX - popup.offsetLeft;
+    offsetY = e.clientY - popup.offsetTop;
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+      popup.style.left = (e.clientX - offsetX) + 'px';
+      popup.style.top = (e.clientY - offsetY) + 'px';
+    }
+  });
+
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+
+  // Toggle image on click
+  popup.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent bubbling to document
+    popupImage.src = image1;
+    isOriginalImage = true;
+  });
+
+  // Change image when clicking off popup
+  document.addEventListener('click', (e) => {
+    if (popup.style.display === 'block' && !popup.contains(e.target)) {
+      popupImage.src = image2;
+      isOriginalImage = false;
+    }
+  });
+
+  // Typing "luna" detection
+  let typed = '';
+
+document.addEventListener('keydown', (e) => {
+  // Ignore if user is typing in an input or textarea
+  const tag = document.activeElement.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || e.ctrlKey || e.metaKey || e.altKey) return;
+
+  // Only care about a-z characters
+  const key = e.key.toLowerCase();
+  if (key.length === 1 && key >= 'a' && key <= 'z') {
+    typed += key;
+    if (typed.length > 4) typed = typed.slice(-4);
+    if (typed === 'luna') {
+      popup.style.display = 'block';
+      popupImage.src = image1;
+      isOriginalImage = true;
+    }
+  }
+});
+document.getElementById('popupClose').addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+
+function updatePiss() {
+        const startOfPiss = new Date('2021-09-10T00:00:00');
+        const now = new Date();
+
+        const diffTime = now - startOfPiss; // in milliseconds
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+        document.getElementById('day-counter').textContent = `Today is day ${diffDays} of Pissport`;
+    }
+
+    updatePiss();
+
+    document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    const popupWidth = popup.offsetWidth;
+    const popupHeight = popup.offsetHeight;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    let newLeft = e.clientX - offsetX;
+    let newTop = e.clientY - offsetY;
+
+    // Keep within horizontal bounds
+    if (newLeft < 0) newLeft = 0;
+    if (newLeft + popupWidth > windowWidth) newLeft = windowWidth - popupWidth;
+
+    // Keep within vertical bounds
+    if (newTop < 0) newTop = 0;
+    if (newTop + popupHeight > windowHeight) newTop = pageHeight - popupHeight;
+
+    popup.style.left = newLeft + 'px';
+    popup.style.top = newTop + 'px';
+  }
+});
     </script>
 </body>
 </html>
