@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>base - Simbian's Attic</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lilita One', cursive;
+            background: url('https://simbiantech.github.io/Site/gallery/Spring11.webp') no-repeat center center/cover;
+            background-attachment: fixed;
+            color: #00A2E8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0px;
+            font-size: 125%;
+        }
+
+        /* Header */
+        .header {
+            height: 75px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            background: rgba(19, 28, 51, 0.7);
+            color: #00A2E8;
+            font-size: 30px;
+            font-weight: 0;
+            z-index: 1000;
+        }
+
+        .header .title {
+            cursor: pointer;
+            text-decoration: none;
+            color: #00A2E8;
+        }
+
+        .header .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header .header-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #00A2E8;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .header .header-button img {
+            width: 33px;
+            height: 33px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger-menu img {
+            width: 33px;
+            height: 33px;
+        }
+
+        /* Mobile Menu (Full Screen and Visible by Default) */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(19, 28, 51, 0.7);
+            color: #00A2E8;
+            padding: 50px 20px;
+            text-align: center;
+            overflow-y: auto;
+            backdrop-filter: blur(10px); /* Apply blur to the menu */
+            z-index: 999;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: #00A2E8;
+            font-size: 24px;
+            text-decoration: none;
+            margin: 20px 0;
+            padding: 10px;
+            font-weight: 500;
+        }
+
+        .mobile-menu a img {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #333;
+        }
+
+        /* Show Mobile Menu when active */
+        .mobile-menu.active {
+            display: block;
+        }
+
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 14px;
+            color: #00A2E8;
+        }
+        #popup {
+      position: absolute;
+      width: 366px;
+      height: 169px;
+      top: 100px;
+      left: 100px;
+      display: none;
+      cursor: default;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0); /* Dark transparent background */
+  backdrop-filter: blur(6px);     /* Glass-like blur */
+  border-radius: 8px;            /* Rounded corners */
+  overflow: hidden;               /* Keeps image rounded too */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.501); /* Optional soft shadow */
+   transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+    }
+
+    #popupHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 100%;
+  background: transparent; /* makes it invisible */
+  z-index: 10; /* make sure it's on top of the image */
+}
+
+    #popupImage {
+      width: 366px;
+      height: 169px;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s ease;
+}
+#popupClose {
+  position: absolute;
+
+  right: 7px;
+  width: 47px;
+  height: 20px;
+  background: url('xblank.png') no-repeat center/contain;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 20;
+}
+#popupClose:hover {
+  background-image: url('xhover.png');
+  box-shadow: 0 0 6px 2px rgba(255, 42, 0, 0.615); /* Red glow on hover */
+  border-bottom-left-radius: 4px; 
+  border-bottom-right-radius: 4px; 
+
+}
+
+#popupClose:active {
+  background-image: url('xhold.png');
+  
+}
+#popupLinkButton {
+  position: absolute;
+  bottom: 19px;
+  right: 19px;
+  width: 74px;
+  height: 21px;
+  background: url('Lb.png') no-repeat center/contain;
+  display: block;
+  cursor: pointer;
+  z-index: 20;
+}
+
+#popupLinkButton2 {
+  position: absolute;
+  bottom: 19px;
+  right: 101px;
+  width: 74px;
+  height: 21px;
+  background: url('Lbnonh.png') no-repeat center/contain;
+  display: block;
+  cursor: pointer;
+  z-index: 20;
+}
+
+#popupLinkButton:hover {
+  background-image: url('Lbhover.png');
+}
+
+#popupLinkButton:active {
+  background-image: url('Lbhold.png');
+}
+#popupLinkButton2:hover {
+  background-image: url('Lbhover2.png');
+}
+
+#popupLinkButton2:active {
+  background-image: url('Lbhold2.png');
+}
+#text7 {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  padding: 0 15px;
+  font-size: 30px;
+  color: #00A2E8;
+  font-family: 'Lilita One', cursive;
+  z-index: 900;
+}
+#popupClose, #popupLinkButton, #popupLinkButton2 {
+  transition: background-image 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  
+  opacity: 1;
+}
+#popupClose:hover {
+transition: box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+
+         
+            
+            .header .header-buttons {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+        
+
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://simbiantech.github.io/Site/resources/icon.webp" type="image/png">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <a href="https://simbiantech.github.io/Site/" class="title">Simbian's Attic</a>
+        <!-- Buttons Container on the Left -->
+        <div class="header-buttons">
+        <!--<a href="https://simbiantech.github.io/Site/other/AI/ai.html" class="header-button">-->
+                <!--<img src="https://simbiantech.github.io/Site/resources/ai-icon.webp" alt="ai Icon"> AI-->
+            </a>
+            <a href="https://simbiantech.github.io/Site/other/other.html" class="header-button">
+                <img src="https://simbiantech.github.io/Site/resources/others-icon.webp" alt="other Icon"> Other
+            </a>
+            <a href="https://simbiantech.github.io/Site/gallery/gallery.html" class="header-button">
+                <img src="https://simbiantech.github.io/Site/resources/gallery-icon.webp" alt="Gallery Icon"> Gallery
+            </a>
+            <a href="https://simbiantech.github.io/Site/downloads/downloads.html" class="header-button">
+                <img src="https://simbiantech.github.io/Site/resources/downloads-icon.webp" alt="Downloads Icon"> Downloads
+            </a>
+            <a href="https://simbiantech.github.io/Site/linktree/linktree.html" class="header-button">
+                <img src="https://simbiantech.github.io/Site/resources/linktree-icon.webp" alt="Link Tree Icon"> Link Tree
+            </a>
+        </div>
+    
+        <!-- Hamburger Menu (Image as Icon) -->
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <img src="https://simbiantech.github.io/Site/resources/ham.webp" alt="Hamburger Menu Icon">
+        </div>
+    </div>
+    
+    <!-- Fullscreen Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="https://simbiantech.github.io/Site/other/other.html">
+            <img src="https://simbiantech.github.io/Site/resources/others-icon.webp" alt="Other"> Other
+        </a>
+        <a href="https://simbiantech.github.io/Site/gallery/gallery.html">
+            <img src="https://simbiantech.github.io/Site/resources/gallery-icon.webp" alt="Gallery"> Gallery
+        </a>
+        <a href="https://simbiantech.github.io/Site/downloads/downloads.html">
+            <img src="https://simbiantech.github.io/Site/resources/downloads-icon.webp" alt="Downloads Icon"> Downloads
+        </a>
+        <a href="https://simbiantech.github.io/Site/linktree/linktree.html">
+            <img src="https://simbiantech.github.io/Site/resources/linktree-icon.webp" alt="Link Tree Icon"> Link Tree
+        </a>
+        <!--<a href="https://simbiantech.github.io/Site/other/AI/ai.html">-->
+            <!--<img src="https://simbiantech.github.io/Site/resources/ai-icon.webp" alt="AI"> AI-->
+        </a>
+    </div>
+<!-- DRAGGABLE POPUP (moved outside mobile menu) -->
+<div id="popup">
+
+    <button id="popupClose"></button>
+    <div id="popupHeader"></div>
+    <img id="popupImage" src="Lactive.png" alt="Popup Image"/>
+    <div id="text7">Do you want to download a virus to your computer?</div>
+    <a id="popupLinkButton" href="https://www.google.com/search?q=free+antivirus&rlz=1C1CHBD_enLT1026LT1026&oq=free+antivirus&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIHCAkQABiABNIBCDQ4NDdqMGo0qAIAsAIB8QUF4KCtEla6ZA&sourceid=chrome&ie=UTF-8" target="_blank" rel="noopener noreferrer"></a>
+    <div id="popupLinkButton2" h target="_blank" rel="noopener noreferrer"></div>
+  </div>
+    <!-- Sections -->
+
+
+    <!-- Footer -->
+    <div class="footer">Spring 11 (May 2025)</div>
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.getElementById("mobileMenu");
+            mobileMenu.classList.toggle("active");
+        }
+
+    const popup = document.getElementById('popup');
+  const popupImage = document.getElementById('popupImage');
+  const header = document.getElementById('popupHeader');
+
+  let image1 = 'Lactive.png'; // Replace with your image path
+  let image2 = 'Linactive.png'; // Replace with second image path
+  let isOriginalImage = true;
+
+  // Dragging logic
+  let offsetX, offsetY, isDragging = false;
+
+  header.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    offsetX = e.clientX - popup.offsetLeft;
+    offsetY = e.clientY - popup.offsetTop;
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+      popup.style.left = (e.clientX - offsetX) + 'px';
+      popup.style.top = (e.clientY - offsetY) + 'px';
+    }
+  });
+
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+
+  // Toggle image on click
+  popup.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent bubbling to document
+    popupImage.src = image1;
+    isOriginalImage = true;
+  });
+
+  // Change image when clicking off popup
+  document.addEventListener('click', (e) => {
+    if (popup.style.display === 'block' && !popup.contains(e.target)) {
+      popupImage.src = image2;
+      isOriginalImage = false;
+    }
+  });
+
+  // Typing "luna" detection
+  let typed = '';
+
+  window.addEventListener('load', () => {
+  popup.style.display = 'block';
+  popupImage.src = image1;
+  isOriginalImage = true;
+});
+document.getElementById('popupClose').addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+document.getElementById('popupLinkButton2').addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+
+
+
+    document.addEventListener('mousemove', (e) => {
+  if (isDragging) {
+    const popupWidth = popup.offsetWidth;
+    const popupHeight = popup.offsetHeight;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    let newLeft = e.clientX - offsetX;
+    let newTop = e.clientY - offsetY;
+
+    // Keep within horizontal bounds
+    if (newLeft < 0) newLeft = 0;
+    if (newLeft + popupWidth > windowWidth) newLeft = windowWidth - popupWidth;
+
+    // Keep within vertical bounds
+    if (newTop < 0) newTop = 0;
+    if (newTop + popupHeight > windowHeight) newTop = windowHeight - popupHeight;
+
+    popup.style.left = newLeft + 'px';
+    popup.style.top = newTop + 'px';
+  }
+});
+    </script>
+</body>
+</html>

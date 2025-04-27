@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Lilita One', cursive;
-            background: url('background.jpg') no-repeat center center/cover;
+            background: url('https://simbiantech.github.io/Site/gallery/Spring11.webp') no-repeat center center/cover;
             background-attachment: fixed;
             color: #00A2E8;
             min-height: 100vh;
@@ -290,6 +290,37 @@
         .popup-dismiss:active {
             transform: translate(-50%, 1px);
         }
+        .popup-dismiss2 {
+    position: absolute;
+    bottom: 15px;
+    transform: translateX(-50%);
+    bottom: 80px;
+    left: 50%;
+    width: 325px;
+    height: 55px;
+    background: url('https://simbiantech.github.io/Site/resources/buttonsmall.webp') no-repeat center center / contain;
+    border: none;
+    cursor: pointer;
+    color: #00A2E8;
+    font-family: 'Lilita One', cursive;
+    font-size: 22px;
+    font-weight: 0;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;  /* <-- center text vertically */
+    justify-content: center; /* <-- center text horizontally */
+        }
+
+        .popup-dismiss2:hover {
+            transform: translate(-50%, -3px);
+            
+        }
+
+        .popup-dismiss2:active {
+            transform: translate(-50%, 1px);
+        }
 
         @media (max-width: 768px) {
             .header .header-buttons {
@@ -422,9 +453,10 @@
     <div class="popup-overlay" id="popupOverlay">
         <div class="bottom-popup">
             <p class="popup-title">ℹ️ Selling information</p>
-            <p class="popup-text">Starting April 27th 2025 at 21:00 Eeastern European Summer Time you will no longer be able to pouchase goods from my Skelbiu.lt, Vinted, Eneba, and Facebook Marketplace pages, however from time to time sales may open up on weekends only on Eneba and Vinted. Selling operations will be returning to normal starting February 2026. Sorry for the inconveniences.</p>
-            <p class="popup-title">ℹ️ Aditional information regarding content creation</p>
-            <p class="popup-text">The Announcements Part 1 (2025) will soon be published on Simbian Gaming, discussing the content creation situation during military service. </p>
+            <p class="popup-text">Normal selling operation have been terminated untill February 2026, For additional information follow Tiktok and Discord Sorry for the inconveniences.</p>
+            <p class="popup-title">ℹ️ Information regarding content creation</p>
+            <p class="popup-text">The Announcements Part 1 (2025/10 years of Simbian Gaming) has been published on Simbian Gaming, discussing the content creation situation during military service. Some videos have been prepared for a period of time, click the button bellow to watch the announcements <br><br><br></p>
+            <a class="popup-dismiss2" href="https://www.youtube.com/watch?v=LPmUmNxBVac">Watch Announcements Video</a>
             <button class="popup-dismiss" onclick="dismissPopup()">OK</button>
             <div class="popup-border-bottom"></div>
         </div>
