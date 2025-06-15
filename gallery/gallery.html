@@ -218,7 +218,7 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            z-index: 1002;
+            z-index: 1007;
             padding: 20px;
         }
         
@@ -273,6 +273,44 @@
     cursor: pointer;
     right: 70px;
 }
+        @media (min-width: 768px) {
+            .header {
+            height: 120px;
+            background: rgba(19, 28, 51, 0.7);
+            }
+            .album {
+            margin-top: -11px;
+            height: 46px;
+            position: fixed;
+            width: 100%;
+            padding: 20px;
+            
+            
+            z-index: 1002;
+            backdrop-filter: none;
+            background: rgba(19, 28, 51, 0);
+            color: #00A2E8;
+            font-size: 30px;
+            font-weight: 0;
+            z-index: 1003;
+        }
+        
+        .header .title {
+            margin-top: -46px;
+        }
+
+        .header .header-buttons {
+            margin-top: -46px;
+        }
+
+        .header .header-button {
+            margin-top: -0px;
+        }
+
+        .header .header-button img {
+            margin-top: -0px;
+        }
+        }
         @media (max-width: 768px) {
 
     .album {
@@ -301,11 +339,11 @@
     }
     .gallery {
     margin-top: 0px;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
 }
 .gallery img {
     width: 100%;
-    height: auto;
+    height: 150px;
 }
 
 }
@@ -417,7 +455,7 @@
         <img src="Winter6.webp" alt="Winter 6 (January 2024), Used in channel outros and stream screens." data-season="Winter" onclick="openLightbox(this)"loading="lazy">
         <img src="Winter7.webp" alt="Winter 7 (February 2024), Used in channel outros and stream screens." data-season="Winter" onclick="openLightbox(this)"loading="lazy">
         <img src="Spring6.jpg" alt="Spring 6 (March 2024), Used in channel outros and stream screens." data-season="Spring" onclick="openLightbox(this)"loading="lazy">
-        <img src="Spring7.jpg" alt="Spring 7 (April 2024), Used in channel outros and stream screens." data-season="Spring" onclick="openLightbox(this)"loading="lazy">
+        <img src="Spring7.webp" alt="Spring 7 (April 2024), Used in channel outros and stream screens." data-season="Spring" onclick="openLightbox(this)"loading="lazy">
         <img src="Spring8.webp" alt="Spring 8 (May 2024), Used in channel outros and stream screens." data-season="Spring" onclick="openLightbox(this)"loading="lazy">
         <img src="Summer7.webp" alt="Summer 7 (June 2024), Used in channel outros and stream screens." data-season="Summer" onclick="openLightbox(this)"loading="lazy">
         <img src="Summer8.webp" alt="Summer 8 (July 2024), Used in channel outros and stream screens." data-season="Summer" onclick="openLightbox(this)"loading="lazy">
@@ -427,10 +465,11 @@
         <img src="Winter8.jpg" alt="Winter 8 (December 2024), Used in channel outros and stream screens." data-season="Winter" onclick="openLightbox(this)"loading="lazy">
         <img src="Winter10.jpg" alt="Winter 10 (February 2025), Used in channel outros and stream screens." data-season="Winter" onclick="openLightbox(this)"loading="lazy">
         <img src="Winter10-1.jpg" alt="Winter 10.5 (February 2025), Used in channel outros and stream screens." data-season="Winter" onclick="openLightbox(this)"loading="lazy">
-        <img src="Spring9.jpg" alt="Spring 9 (March 2025), Used in channel outros and stream screens." data-season="Spring"  onclick="openLightbox(this)"loading="lazy">
+        <img src="Spring9.webp" alt="Spring 9 (March 2025), Used in channel outros and stream screens." data-season="Spring"  onclick="openLightbox(this)"loading="lazy">
         <img src="Spring10.webp" alt="Spring 10 (April 2025), Used in channel outros and stream screens." data-season="Spring"  onclick="openLightbox(this)"loading="lazy">
         <img src="Spring11.webp" alt="Spring 11 (May 2025), Used in channel outros and stream screens." data-season="Spring"  onclick="openLightbox(this)"loading="lazy">
         <img src="Summer10.webp" alt="Summer 10 (June 2025), Used in channel outros and stream screens." data-season="Summer" onclick="openLightbox(this)"loading="lazy">
+         <img src="Summer11.webp" alt="Summer 11 (July 2025), Used in channel outros and stream screens." data-season="Summer" onclick="openLightbox(this)"loading="lazy">
         <!-- Candidates -->
         <img src="PSMP71.png" alt="Candidate for Special end of Peculiar SMP 6 background." data-season="Other, Candidates" onclick="openLightbox(this)"loading="lazy">
         <img src="w81.jpg" alt="Candidate for Winter 8." data-season="Winter, Candidates" onclick="openLightbox(this)"loading="lazy">
