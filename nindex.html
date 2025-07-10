@@ -169,15 +169,79 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
+      
     }
 
-    .section {
-      background: rgba(19, 28, 51, 0.7);
-       backdrop-filter: blur(10px); /* Blur the background */
-      padding: 20px;
-      border-radius: 10px;
-      width: 100%;
-    }
+    /* Add this for .section to ensure the borders apply to all sides */
+.section {
+  position: relative;
+  width: 100%;
+  background: rgba(19, 28, 51, 0.7);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  background-repeat: repeat-x;
+  background-position: top left;
+  background-size: 10px auto;
+  background-image: url('resources/div2.png');
+  overflow: hidden;
+  box-sizing: border-box;
+
+  /* Padding adjusted to not push past border edges */
+  padding: 20px 10px;
+  padding-top: 30px;    /* extra space for top border */
+  padding-bottom: 30px; /* extra space for bottom border */
+}
+
+.section::before,
+.section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-image: url('resources/div2.png');
+  background-repeat: repeat-x;
+  background-size: 10px auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.section::before {
+  top: 0;
+}
+
+.section::after {
+  bottom: 0;
+  
+}
+
+.section .border-left,
+.section .border-right {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 10px;
+  background-image: url('resources/div.png');
+  background-repeat: repeat-y;
+  background-size: auto 10px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.section .border-left {
+  left: 0;
+}
+
+.section .border-right {
+  right: 0;
+}
+
+/* Ensure content is always above borders */
+.section * {
+  position: relative;
+  z-index: 3;
+}
+
 
     .section p {
       margin-bottom: 10px;
@@ -413,31 +477,38 @@
     <!-- Text Sections -->
     <div class="sections">
         <p class="footer-top-text">Welcome to Simbian’s Attic</p>
+
       <div class="section">
+  <div class="border-left"></div> <!-- Left Border -->
+  <div class="border-right"></div> <!-- Right Border -->
+  <p>Simbian Stuff<br>This channel was created about a year after Simbian Gaming...</p>
+  <button>Placeholder</button>
+  <div class="section-border-bottom"></div> <!-- Optional additional bottom border -->
+</div>
+            <div class="section">
         <p>Simbian Gaming<br>This is my first YouTube channel created back in October 2015, I have maintained this channel for nearly 10 years and its still going pretty decently today, though my focus is slowly shifting towards Simbian Tech. I also stream games (mostly Minecraft) both on Twitch and YouTube, TikTok account also exists but there is not much there.</p>
-        <button>Go</button>
-      </div>
-      <div class="section">
-        <p>Simbian Stuff<br>This channel was created about a year after Simbian Gaming, it mostly contains random content like demo phone videos, testing videos and other stuff.</p>
-        <button>Explore</button>
+        <button>Placeholder</button>
       </div>
       <div class="section">
         <p>Simbian Ducks and Swans<br>This was basically an experiment to see how far I can go by just uploading shorts of ducks and swans in a local park.</p>
-        <button>Discover</button>
+        <button>Placeholder</button>
       </div>
       <div class="section">
         <p>Simbian Tech<br>Originally this was a channel I created for making vlogs back in 2020, since that didn't go anywhere in 2022 I reproposed it into my tech channel since posting tech content on my main channel wouldn't go so well. In 2023 Simbian Gaming on TikTok became Simbian Tech due to the amount of tech content I was uploading there. And yes it is slowly becoming my main channel.</p>
-        <button>Enter</button>
+        <button>Placeholder</button>
       </div>
       <div class="section">
         <p>Tom's Game Corner<br>This channel created just last year, here I'm uploading videos about my hardware side of gaming, though at the moment I don't have many ideas.</p>
-        <button>Launch</button>
+        <button>Placeholder</button>
       </div>
       </div>
       </div>
  <!-- Right Side (Embed) -->
   <div class="right-side">
+    
+   
     <h2>News and Updates</h2>
+    
     <iframe src="news.html"></iframe>
   </div>
 </div>
