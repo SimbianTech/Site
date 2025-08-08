@@ -160,15 +160,6 @@
             font-size: 2.5em;
             margin-bottom: 20px;
             text-align: center;
-                         text-shadow:
--2px -2px 0 #99D9EA,
-     2px -2px 0 #99D9EA,
-    -2px  2px 0 #99D9EA,
-     2px  2px 0 #99D9EA,
-    -2px  0px 0 #99D9EA,
-     2px  0px 0 #99D9EA,
-     0px -2px 0 #99D9EA,
-     0px  2px 0 #99D9EA;
         }
 
         .left-section .text {
@@ -181,24 +172,17 @@
         }
         .five-column-row {
     display: grid;
-    gap: 1px;
-    margin-top: 1px;
-    text-align: left;   
-    grid-template-columns: 1fr 60px 1fr 0.85fr 67px; /* 2nd and 5th columns fixed */
+    grid-template-columns: repeat(5, 1fr);
     gap: 1px;
     margin-top: 1px;
     text-align: left;
 }
 
-
 .five-column-row .column {
     font-size: 1em;
-    padding: 3px;
+    padding: 2px;
     border-radius: 10px;
     
-}
-.five-column-row.highlight {
-    color: #99D9EA; /* Change to your preferred color */
 }
 
                .footer-top-text,
@@ -207,16 +191,7 @@
   font-size: 22px;
   color: #00a2e8;
   text-shadow: 0 0 4px rgba(0, 162, 232, 0.3);
-  align-items: center;
-  text-shadow:
--2px -2px 0 #99D9EA,
-     2px -2px 0 #99D9EA,
-    -2px  2px 0 #99D9EA,
-     2px  2px 0 #99D9EA,
-    -2px  0px 0 #99D9EA,
-     2px  0px 0 #99D9EA,
-     0px -2px 0 #99D9EA,
-     0px  2px 0 #99D9EA;
+  align-items: center
 }
 
 .footer-links {
@@ -375,15 +350,12 @@
           <div class="left-section">
             <div class="title">JBenchmark Scores</div>
             <div class="text">You can submit your results by DMing me on discord (find it in Link Tree).<br>All devices used were tested with JBenchmark V1.1.1, Android devices with J2ME Loader and PCs with KEmulator. KarinME used for Nokia N9 (MeeGo)</div>
-        <div class="five-column-row highlight">
+        <div class="five-column-row">
     <div class="column">Device</div>
     <div class="column">Year</div>
     <div class="column">Extra Info</div>
     <div class="column">Contributor</div>
     <div class="column">Score</div>
-</div>
-<div class="five-column-row">
-    <div class="column"></div>
 </div>
          <div class="five-column-row">
     <div class="column">Samsung Galaxy S25 Ultra</div>
@@ -981,15 +953,12 @@
             <div class="title">Unverified results</div>
             <div class="text">Theese results couldnt have been verified due to how unrealistic they look like.</div>
             
-            <div class="five-column-row highlight">
+            <div class="five-column-row">
     <div class="column">Device</div>
     <div class="column">Year</div>
     <div class="column">Extra Info</div>
     <div class="column">Contributor</div>
     <div class="column">Score</div>
-</div>
-<div class="five-column-row">
-    <div class="column"></div>
 </div>
      <div class="five-column-row">
     <div class="column">Samsung Galaxy S22 Ultra</div>
@@ -1003,15 +972,12 @@
             <div class="title">Remote test lab results</div>
             <div class="text">Results from Samsung Remote test lab.</div>
             
-            <div class="five-column-row highlight">
+            <div class="five-column-row">
     <div class="column">Device</div>
     <div class="column">Year</div>
     <div class="column">Extra Info</div>
     <div class="column">Contributor</div>
     <div class="column">Score</div>
-</div>
-<div class="five-column-row">
-    <div class="column"></div>
 </div>
              <div class="five-column-row">
     <div class="column">Samsung Galaxy S25 Ultra</div>
