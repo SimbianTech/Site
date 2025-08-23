@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Lilita One', cursive;
-            background: url('https://simbiantech.github.io/Site/gallery/Full/Summer12.jpg') no-repeat center center/cover;
+            background: url('https://simbiantech.github.io/Site/gallery/Spring7.webp') no-repeat center center/cover;
             background-attachment: fixed;
             color: #00A2E8;
             min-height: 100vh;
@@ -238,33 +238,40 @@
     .section p {
       margin-bottom: 10px;
     }
-
+.section-buttons {
+  display: flex;
+  flex-wrap: wrap;       /* allows wrapping on small screens */
+  gap: 10px;             /* spacing between buttons */
+  justify-content: center; /* centers them horizontally */
+}
     .section-button {
-  display: block;
-  margin: 0 auto;
+ display: inline-flex;   /* inline-flex so text centers nicely */
+  align-items: center;
+  justify-content: center;
   padding: 10px 20px;
-  width: 150px;
+  min-width: 120px;       /* keeps consistent size */
   border: none;
-  background-color: rgba(35, 62, 91, 0.512);
+  background-color: rgba(60, 106, 156, 0.512);
 
   color: #00A2E8;
   font-family: 'Lilita One';
-  font-size: 1em;
+ font-size: 1em;
   cursor: pointer;
   border-radius: 5px;
-  text-decoration: none; /* removes underline */
+  text-decoration: none;
   transition: transform 0.2s, background-color 0.2s;
 }
 
 .section-button:hover {
-  background-color: rgba(48, 86, 127, 0.7);
-  transform: translateY(-3px);
+  background-color: rgba(38, 68, 100, 0.7);
+  
 }
 
     .right-side {
   position: relative;
   width: 400px;
-  padding: 20px 5px;
+  padding: 5px 5px;
+  padding-top: 20px;
   background: rgba(19, 28, 51, 0.7);
   backdrop-filter: blur(10px);
   display: flex;
@@ -313,24 +320,42 @@
 .right-side * {
   position: relative;
   z-index: 3;
+  
 }
 
     .right-side h2 {
       text-align: center;
       font-size: 16px;
-      margin-bottom: 10px;
+      
     }
 
     .right-side iframe {
-      width: 100%;
-      height: 100%;
+      
       border: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* hides the scrollbar */
+  scrollbar-width: none; /* Firefox */
     }
 
-    
 
 
 
+iframe::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+.news-frame {
+  border: none;
+  width: 100%;
+  height: 100vh;   /* or whatever height you want */
+  overflow: hidden;     /* removes native scrollbars */
+  scrollbar-width: none; /* Firefox */
+}
+
+.news-frame::-webkit-scrollbar {
+  display: none;  /* Chrome, Edge, Safari */
+}
 
 
  .footer-top-text,
@@ -475,7 +500,7 @@
         width: 100%;
         height: auto;
         border-left: none;
-        border-bottom: 2px solid #00A2E8;
+        
       }
 
       .right-side iframe {
@@ -566,7 +591,10 @@
   <div class="border-right"></div> <!-- Right Border -->
   <p class="title2">Simbian Tech</p>
   <p>Originally this was a channel I created for making vlogs back in 2020, since that didn't go anywhere in 2022 I reproposed it into my tech channel since posting tech content on my main channel wouldn't go so well. In 2023 Simbian Gaming on TikTok became Simbian Tech due to the amount of tech content I was uploading there. And yes it is slowly becoming my main channel.</p>
-  <a href="https://www.youtube.com/@SimbianTech" class="section-button">Explore</a>
+   <div class="section-buttons">
+    <a href="https://www.youtube.com/@SimbianTech" class="section-button">YouTube</a>
+    <a href="https://www.tiktok.com/@simbiantech" class="section-button">Tiktok</a>
+  </div>
   <div class="section-border-bottom"></div> <!-- Optional additional bottom border -->
 </div>
             <div class="section">
@@ -574,21 +602,34 @@
   <div class="border-right"></div> <!-- Right Border -->
               <p class="title2">Simbian Gaming</p>
         <p>This is my first YouTube channel created back in October 2015, I have maintained this channel for nearly 10 years and its still going pretty decently today, though my focus is slowly shifting towards Simbian Tech. I also stream games (mostly Minecraft) both on Twitch and YouTube, TikTok account also exists but there is not much there.</p>
-        <a href="https://www.youtube.com/@SimbianGaming" class="section-button">Explore</a>
+         <div class="section-buttons">
+    <a href="https://www.youtube.com/@SimbianGaming" class="section-button">YouTube</a>
+    <a href="https://www.tiktok.com/@simbiangaming" class="section-button">TikTok</a>
+    <a href="https://www.twitch.tv/simbian_gaming" class="section-button">Twitch</a>
+  </div>
       </div>
       <div class="section">
         <div class="border-left"></div> <!-- Left Border -->
   <div class="border-right"></div> <!-- Right Border -->
         <p class="title2">Tom's Game Corner</p>
         <p>This channel created just last year, here I'm uploading videos about my hardware side of gaming, though at the moment I don't have many ideas.</p>
-        <a href="https://www.youtube.com/@SimbiansGameCorner" class="section-button">Explore</a>
+         <div class="section-buttons">
+    <a href="https://www.youtube.com/@SimbiansGameCorner" class="section-button">YouTube</a>
+    <a href="https://www.tiktok.com/@simbiansgamecorner" class="section-button">Twitter</a>
+    
+  </div>
+        
       </div>
       <div class="section">
         <div class="border-left"></div> <!-- Left Border -->
   <div class="border-right"></div> <!-- Right Border -->
         <p class="title2">Simbian Stuff</p>
         <p>This channel was created about a year after Simbian Gaming, it mostly contains random content like demo phone videos, testing videos and other stuff.</p>
-        <a href="https://www.youtube.com/@SimbianStuff" class="section-button">Explore</a>
+        <div class="section-buttons">
+    <a href="https://www.youtube.com/@SimbianStuff" class="section-button">YouTube</a>
+    <a href="https://www.tiktok.com/@simbianstuff" class="section-button">TikTok</a>
+  </div>
+        
         
       </div>
       <div class="section">
@@ -596,7 +637,21 @@
   <div class="border-right"></div> <!-- Right Border -->
         <p class="title2">Simbian Ducks n swans</p>
         <p>This was basically an experiment to see how far I can go by just uploading shorts of ducks and swans in a local park.</p>
-        <a href="https://www.youtube.com/@SimbianDucksNSwans" class="section-button">Explore</a>
+         <div class="section-buttons">
+    <a href="https://www.youtube.com/@SimbianDucksNSwans" class="section-button">YouTube</a>
+
+  </div>
+        </div>
+      <div class="section">
+        <div class="border-left"></div> <!-- Left Border -->
+  <div class="border-right"></div> <!-- Right Border -->
+        <p class="title2">Meet me!</p>
+        <p>I have a comunity Discord server where we can yapp ab all sorts of stuff, as well as a subreddit that nobody uses but it still exists.</p>
+         <div class="section-buttons">
+    <a href="https://discord.com/invite/rKBt8swwwm" class="section-button">Discord server</a>
+    <a href="https://www.reddit.com/r/SimbianGaming/" class="section-button">Subreddit</a>
+
+  </div>
       </div>
       </div>
       </div>
@@ -608,7 +663,7 @@
    
     <p class="title2">News and Updates</p>
     
-    <iframe src="news.html"></iframe>
+    <iframe src="news.html" class="news-frame" ></iframe>
   </div>
 </div>
 </div>
@@ -616,7 +671,7 @@
     <!-- Footer -->
 <div class="footer-overlay">
   <footer class="bottom-popup custom-footer">
-    <p class="footer-top-text">Background: Summer 12 (August 2025)</p>
+    <p class="footer-top-text">Background: Spring 7 (April 2024)</p>
     <div class="footer-links">
       <a href="linktree/linktree.html"><img src="resources/linktree-icon.webp" alt="" /> Link Tree</a>
       <a href="gallery/gallery.html"><img src="resources/gallery-icon.webp" alt="" /> Gallery</a>

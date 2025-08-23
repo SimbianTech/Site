@@ -70,7 +70,38 @@
       background-size: 10px auto;
       background-image: url('https://simbiantech.github.io/Site/other/tests/div2.png');
     }
+.right-side {
+  overflow-y: auto; /* ensure scrolling */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(0,162,232,0.6) transparent; /* Firefox */
+}
 
+/* WebKit scrollbar styling */
+.right-side::-webkit-scrollbar {
+  width: 6px; /* thin */
+}
+
+.right-side::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.right-side::-webkit-scrollbar-thumb {
+  background: rgba(0,162,232,0.6);
+  border-radius: 10px; /* rounded ends */
+  transition: opacity 0.3s ease;
+}
+
+.right-side::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,162,232,0.9);
+}
+
+/* Hidden state */
+.right-side.hide-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+.right-side.hide-scrollbar {
+  scrollbar-color: transparent transparent; /* Firefox */
+}
     @media (max-width: 768px) {
       
         
@@ -80,22 +111,63 @@
 </head>
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
 <body>
-      <div class="title">Welcome to Simbian's Attic</div>
+   <div class="right-side"></div>
+    <div class="title">Death of Pissport</div>
+    <div class="text">Published: August 23rd 2025</div>
+    <div class="line"></div>
+    <div class="text">The last day (day 1461) of "Pissport" being a thing was planned to be September 10th 2025 as me and LunaMcClain has agreed that the joke has been going for way too long and should be but to rest. Due to unforseen circumstances the final stream with it mentioned cannot happen on September 10th 2025 so it will be the closest day where i can do a stream, after that stream the only countdown of it will be an easteregg hidden somewhere on this website. </div>
+    <div class="line"></div>
+
+    <div class="title">New ChampionCraft day!!!</div>
+    <div class="text">Published: August 23rd 2025</div>
+    <div class="line"></div>
+    <div class="text">Yesterday (August 22nd) marked 5 years since New ChampionCraft 3.5, AKA the first season of New ChampionCraft started after ChampionCraft and SimbianCraft merged. Unfortunately due to unforseen circumstances I couldnt host a celebration of any kind. </div>
+    <div class="line"></div>
+
+    <div class="title">Welcome to Simbian's Attic</div>
     <div class="text">Published: August 17th 2025</div>
     <div class="line"></div>
     <div class="text">Welcome to the new and redesigned home page now featuring "News and Updates" as a part of it!</div>
     <div class="line"></div>
+
     <div class="title">Normal content schedule?</div>
     <div class="text">Published: April 28th 2025, Edited: August 17th 2025</div>
     <div class="line"></div>
     <div class="text">Due to the ongoing military service content will be posted infrequently and in lower quality than usual, normal schedule will return after the service in February of next year.</div>
     <div class="line"></div>
+
     <div class="title">ChampionCraft 1 Downloads</div>
     <div class="text">Published: January 1st 2025, Edited: August 17th 2025</div>
     <div class="line"></div>
-    <div class="text">ChampionCraft 1 has unexpectedly returned after the end of GreenCraft SMP, and now there is potential for it to finally become downloadable 5 years after its launch on December 28th 2019,  Stay tuned for more updates .</div>
+    <div class="text">ChampionCraft 1 has unexpectedly returned after the end of GreenCraft SMP, and now there is potential for it to finally become downloadable 5 years after its launch on December 28th 2019,  Stay tuned for more updates.</div>
     <div class="line"></div>
-
+</div>
   </div>
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const rightSide = document.querySelector(".right-side");
+  if (!rightSide) return; // avoid errors if element doesn't exist
+
+  let hideTimeout;
+
+  function showScrollbar() {
+    rightSide.classList.remove("hide-scrollbar");
+    clearTimeout(hideTimeout);
+    hideTimeout = setTimeout(() => {
+      rightSide.classList.add("hide-scrollbar");
+    }, 2000);
+  }
+
+  rightSide.addEventListener("scroll", showScrollbar);
+  rightSide.addEventListener("mouseenter", showScrollbar);
+  rightSide.addEventListener("mousemove", showScrollbar);
+  rightSide.addEventListener("mouseleave", () => {
+    rightSide.classList.add("hide-scrollbar");
+  });
+
+  rightSide.classList.add("hide-scrollbar"); // start hidden
+});
+</script>
+
 </html>
