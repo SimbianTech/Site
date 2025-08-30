@@ -24,6 +24,7 @@
             justify-content: center;
             padding: 75px 0 0; /* Add a 75px gap at the top */
             font-size: 125%;
+            
         }
 
         /* Header */
@@ -198,7 +199,7 @@
      /* Right Section */
      .right-section {
         width: 66.66%;
-        padding: 20px;
+        
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -217,6 +218,7 @@
         background-position: center;
         cursor: pointer;
         transition: transform 0.2s;
+        
     }
         .right-section .button:hover {
             transform: translateY(-3px);
@@ -285,8 +287,9 @@
            
     
     .styled-button {
-    background-image: url('bg-dark.png'); /* Or any plain dark image */
-    background-color: #333; /* Fallback color */
+    
+    backdrop-filter: blur(10px);
+    background-color:rgba(19, 28, 51, 0.7);; /* Fallback color */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -483,7 +486,8 @@
                 </div>
                   
             </a>
-            
+        
+        
         <!-- Footer -->
     <div class="footer-overlay">
   <footer class="custom-footer">
@@ -498,8 +502,8 @@
     </div>
     <p class="footer-bottom-text">© 2025 Simbian Tech.</p>
   </footer>
-            
-        </div>
+</div>            
+</div>    
 
   
     <script>
