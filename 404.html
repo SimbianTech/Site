@@ -12,18 +12,19 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Lilita One', cursive;
-            background: url('https://simbiantech.github.io/Site/gallery/Winter8.jpg') no-repeat center center/cover;
-            background-attachment: fixed;
-            color: #00A2E8;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 0px;
-            font-size: 125%;
+       body {
+    font-family: 'Lilita One','Arial Black';
+    background: url('https://simbiantech.github.io/Site/gallery/Winter8.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    color: #00A2E8;
+    min-height: 100vh;
+align-items: center;
+    /* FLEXBOX sticky footer layout */
+    display: flex;
+    flex-direction: column;
+
+    padding: 0;
+    font-size: 125%;
         }
 
         /* Header */
@@ -147,15 +148,19 @@
 
         /* Sections */
  /* Link Tree Section */
- .container {
-            margin-top: 150px;
-            width: 100%;
-            max-width: 700px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-        }
+       .container {
+    margin-top: 150px;
+    width: 100%;
+    max-width: 700px;
+
+    /* important for sticky footer */
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
 
         .category {
             width: 100%;
@@ -201,7 +206,7 @@
             align-items: center;
         }
 
-        .link-button {
+      .link-button {
             display: block;
             width: 450px;
             height: 55px;
@@ -211,7 +216,8 @@
             font-size: 22px;
             font-weight: 0;
             color: #00A2E8;
-            background: url('https://simbiantech.github.io/Site/resources/button.webp') no-repeat center center/cover;
+            backdrop-filter: blur(10px);
+            background: url('button.png') no-repeat center center/cover, rgba(19, 28, 51, 0.7);;
             border: none;
             transition: transform 0.2s;
         }
@@ -223,14 +229,64 @@
         .link-button:active {
             transform: translateY(1px);
         }
+.footer-top-text,
+.footer-bottom-text {
+  margin: 10px 0;
+  font-size: 22px;
+  color: #00a2e8;
+  text-shadow: 0 0 4px rgba(0, 162, 232, 0.3);
+  
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px 30px;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 500px;
+}
+
+.footer-links a {
+  display: flex;
+  align-items: center;
+  color: #00a2e8;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #50c9ff;
+}
+
+.footer-links img {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  filter: drop-shadow(0 0 1px #00a2e8);
+}
+.footer-overlay {
+    margin-top: 25px;
+    width: 100%;
+    background: rgba(19, 28, 51, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-repeat: repeat-x;
+    background-position: top center;
+    background-size: 10px auto;
+    background-image: url('https://simbiantech.github.io/Site/other/tests/div2.png');
+}
 
         /* Responsive Design */
         @media (max-width: 768px) {
-
-            .link-button {
+ .link-button {
                 width: 325px;
-                background: url('https://simbiantech.github.io/Site/resources/buttonsmall.webp') no-repeat center center/cover;
-            }
+                backdrop-filter: blur(10px);
+            background: url('buttonsmall.png') no-repeat center center/cover, rgba(19, 28, 51, 0.7);;
+ }
             
             .header .header-buttons {
                 display: none;
@@ -239,7 +295,11 @@
             .hamburger-menu {
                 display: block;
             }
-        
+         .footer-links {
+    grid-template-columns: 1fr;
+    text-align: left;
+    padding: 0 10px;
+         }
 
         }
     </style>
@@ -305,7 +365,20 @@
     </div>
 
     <!-- Footer -->
-    <div class="footer">Winter 8 (December 2024)</div>
+     <div class="footer-overlay">
+  <footer class="custom-footer">
+    <p class="footer-top-text">Winter 8 (December 2024)</p>
+    <div class="footer-links">
+      <a href="/Site/linktree/linktree.html"><img src="/Site/resources/linktree-icon.webp" alt="" /> Link Tree</a>
+      <a href="/Site/gallery/gallery.html"><img src="/Site/resources/gallery-icon.webp" alt="" /> Gallery</a>
+      <a href="/Site/downloads/downloads.html"><img src="/Site/resources/downloads-icon.webp" alt="" /> Downloads</a>
+      <a href="/Site/other/other.html"><img src="/Site/resources/others-icon.webp" alt="" /> Other</a>
+      <a href="/Site/privacypolicy/PP.html"><img src="/Site/resources/others-icon.webp" alt="" /> Privacy Policy</a>
+      <a href="/Site/contuse/use.html"><img src="/Site/resources/others-icon.webp" alt="" /> Content Use</a>
+    </div>
+    <p class="footer-bottom-text">© 2025 Simbian Tech.</p>
+  </footer>
+    
     <script>
         function toggleMenu() {
             const mobileMenu = document.getElementById("mobileMenu");
