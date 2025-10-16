@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Championcraft 2 - Championcraft Wiki - Simbian's Attic</title>
+  <style>
+
+    body {
+      font-family: 'Lilita One', sans-serif;
+      background: url('bg.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+            color: #c9c9c9;
+            
+       flex-direction: column;
+            align-items: center;
+            justify-content: center;
+      margin: 0;
+      padding-top: 95px;
+      
+    }
+    
+.header {
+  margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            height: 75px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+           padding-left: 20px;
+           padding-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(10px);
+            background: rgba(19, 28, 51, 0.7);
+            color: #00A2E8;
+            font-size: 30px;
+            font-weight: 0;
+            z-index: 1000;
+            
+        }
+       .header .title {
+            cursor: pointer;
+            text-decoration: none;
+            color: #00A2E8;
+        }
+
+        .header .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header .header-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #00A2E8;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .header .header-button img {
+            width: 33px;
+            height: 33px;
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger-menu img {
+            width: 33px;
+            height: 33px;
+        }
+
+        /* Mobile Menu (Full Screen and Visible by Default) */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(19, 28, 51, 0.7);
+            color: #00A2E8;
+            padding: 50px 20px;
+            text-align: center;
+            overflow-y: auto;
+            backdrop-filter: blur(10px); /* Apply blur to the menu */
+            z-index: 999;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: #00A2E8;
+            font-size: 24px;
+            text-decoration: none;
+            margin: 20px 0;
+            padding: 10px;
+            font-weight: 500;
+        }
+
+        .mobile-menu a img {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #99d9ea74;;
+            border-radius: 5px;
+            width: 200px ;
+            align-items: center;
+        }
+
+        /* Show Mobile Menu when active */
+        .mobile-menu.active {
+            display: block;
+        }
+    .menu-toggle {
+      display: none;
+      font-size: 1.4em;
+      cursor: pointer;
+    }
+nav#contents-nav {
+    background: rgba(51, 86, 104, 0.4);
+  backdrop-filter: blur(10px);
+  
+  top: 95px; /* ✅ offset it below the header */
+  padding: 10px;
+  
+  font-size: 0.9em;
+  height: fit-content,;
+  border-radius: 5px;
+}
+
+nav#contents-nav h2 {
+  font-size: 1em;
+  margin-top: 0;
+  border-bottom: 1px solid #3F6A7F;
+  padding-bottom: 4px;
+}
+
+nav#contents-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav#contents-nav ul li {
+  margin: 5px 0;
+}
+
+nav#contents-nav ul li a {
+  text-decoration: none;
+  color:#3F6A7F;
+}
+nav#contents-nav ul li a:hover {
+  text-decoration: underline;
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr; /* default: single column on mobile */
+  gap: 20px;
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px;
+}
+    article {
+        background: rgba(51, 86, 104, 0.4);
+  backdrop-filter: blur(10px);
+      
+      padding: 20px;
+      
+      border-radius: 5px;
+    }
+
+    article h2 {
+      border-bottom: 1px solid #3F6A7F;
+      padding-bottom: 4px;
+    }
+    article h3 {
+      margin-top: 20px;
+    }
+    .infobox {
+        background: rgba(51, 86, 104, 0.4);
+  backdrop-filter: blur(10px);
+      
+      font-size: 0.9em;
+      padding: 10px;
+      height: fit-content;
+      border-radius: 5px;
+    }
+    .infobox img {
+      width: 100%;
+      height: auto;
+      
+    }
+    .infobox .caption {
+      font-size: 0.8em;
+      text-align: center;
+      margin-top: 4px;
+    }
+    .infobox table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    .infobox table td {
+      padding: 4px;
+      border-bottom: 1px solid #3F6A7F;
+    }
+    .thumb {
+      float: right;
+      width: 220px;
+      margin: 10px;
+      clear: right;
+      
+      background: rgba(50, 113, 129, 0.512);
+      
+      font-size: 0.8em;
+      border-radius: 5px;
+    }
+    .thumb img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    .thumb .caption {
+      padding: 5px;
+      text-align: center;
+    }
+    sup.reference {
+      font-size: 0.8em;
+    }
+    .footer-top-text,
+.footer-bottom-text {
+  margin: 10px 0;
+  font-size: 22px;
+  color: #00a2e8;
+  text-shadow: 0 0 4px rgba(0, 162, 232, 0.3);
+  align-items: center;
+  text-shadow:
+-2px -2px 0 #99D9EA,
+     2px -2px 0 #99D9EA,
+    -2px  2px 0 #99D9EA,
+     2px  2px 0 #99D9EA,
+    -2px  0px 0 #99D9EA,
+     2px  0px 0 #99D9EA,
+     0px -2px 0 #99D9EA,
+     0px  2px 0 #99D9EA;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px 30px;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 500px;
+}
+
+.footer-links a {
+  display: flex;
+  align-items: center;
+  color: #00a2e8;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #50c9ff;
+}
+
+.footer-links img {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  
+}
+.footer-overlay {
+    margin-top: 25px;
+   
+    width: 100%;
+    
+    background: rgba(19, 28, 51, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+     background-repeat: repeat-x;
+    background-position: top center; /* Adjusted to position at the bottom */
+        background-size: 10px auto;  /* Maintain original texture size for vertical stretching */
+        background-image: url('https://simbiantech.github.io/Site/other/tests/div2.png');  /* Replace with your new image */
+}
+
+               .link-button {
+            margin: auto;
+            display: block;
+            width: 462px;
+            height: 62px;
+            text-align: center;
+            line-height: 62.5px;
+            text-decoration: none;
+            font-size: 22.5px;
+            font-weight: 0;
+            color: #00A2E8;
+            background: url('button.png') no-repeat center center/cover;
+            border: none;
+            transition: transform 0.2s;
+               
+        }
+
+        .link-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .link-button:active {
+            transform: translateY(1px);
+        }
+        a {
+  color: #3F6A7F;
+  text-decoration: none; /* optional: removes underline */
+}
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1007;
+    padding: 20px;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80vh;
+    
+}
+
+.lightbox-text {
+    color: #fff;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.lightbox-btn {
+    position: absolute;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.lightbox-btn.close {
+    right: 50px;
+}
+[id] {
+  scroll-margin-top: 95px; /* ✅ applies offset when scrolled into view */
+}
+@media (min-width: 891px) {
+  nav {
+    display: block !important; /* Always visible */
+    position: relative;
+    background: rgba(19, 28, 51, 0.7);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    max-width: 220px;
+    height: fit-content;
+   
+  }
+
+  .menu-toggle {
+    display: none; /* Hide hamburger on desktop */
+  }
+ nav#contents-nav {
+    position: sticky;
+    top: 95px; /* stays visible on scroll */
+    align-self: start;
+  }
+}
+  /* Make the layout 3-column: article + infobox + nav */
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 6fr 220px;
+    gap: 20px;
+  }
+
+  /* Let infobox stay sticky or inline depending on need */
+  .infobox {
+    height: fit-content;
+  }
+
+    /* Responsive Styles */
+    @media (max-width: 890px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+   nav#contents-nav {
+    position: flex;
+    top: 10px; /* stays visible on scroll */
+    align-self: none;
+  }
+      .infobox {
+        order: -1;
+        margin-bottom: 15px;
+      }
+         .header .header-buttons {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+                          body {
+        flex-direction: column;
+      }
+
+      .right-side {
+        width: 100%;
+        height: auto;
+        border-left: none;
+        
+      }
+
+      .right-side iframe {
+        width: 100%;
+        height: 500px;
+      }
+
+      .right-side h2 {
+        font-size: 20px;
+      }
+    
+
+        
+  .footer-links {
+    grid-template-columns: 1fr;
+    text-align: left;
+    padding: 0 ;
+  }
+}
+    
+  </style>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="icon" href="https://simbiantech.github.io/Site/resources/icon.webp" type="image/png">
+</head>
+<body>
+  
+     <div class="header">
+    <a href="https://simbiantech.github.io/Site/wiki/championcraft/" class="title">ChampionCraft Wiki</a>
+    <!-- Buttons Container on the Left -->
+    <div class="header-buttons">
+       <a href="https://simbiantech.github.io/Site/wiki/championcraft/more/" class="header-button">
+            <img src="more-icon.png" alt="more"> More
+            </a>
+        <a href="https://simbiantech.github.io/Site/wiki/championcraft/addons/" class="header-button">
+            <img src="addons-icon.png" alt="addons"> Addons
+        </a>
+        <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/" class="header-button">
+            <img src="players-icon.png" alt="Downloads Icon"> Players
+        </a>
+        <a href="https://simbiantech.github.io/Site/wiki/championcraft/servers/" class="header-button">
+            <img src="servers-icon.png" alt="Link Tree Icon"> Servers
+        </a>
+                <a href="https://simbiantech.github.io/Site/wiki/championcraft/nations/" class="header-button">
+            <img src="nations-icon.png" alt="Link Tree Icon"> Nations
+        </a>
+    </div>
+
+    <!-- Hamburger Menu (Image as Icon) -->
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <img src="https://simbiantech.github.io/Site/resources/ham.webp" alt="Hamburger Menu Icon">
+    </div>
+</div>
+
+<!-- Fullscreen Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+       <a href="https://simbiantech.github.io/Site/wiki/championcraft/more/" class="header-button">
+            <img src="more-icon.png" alt="more"> More
+            </a>
+        <a href="https://simbiantech.github.io/Site/wiki/championcraft/addons/" class="header-button">
+            <img src="addons-icon.png" alt="addons"> Addons
+        </a>
+        <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/" class="header-button">
+            <img src="players-icon.png" alt="Downloads Icon"> Players
+        </a>
+        <a href="https://simbiantech.github.io/Site/wiki/championcraft/servers/" class="header-button">
+            <img src="servers-icon.png" alt="Link Tree Icon"> Servers
+        </a>
+                        <a href="https://simbiantech.github.io/Site/wiki/championcraft/nations/" class="header-button">
+            <img src="nations-icon.png" alt="Link Tree Icon"> Nations
+        </a>
+</div>
+  
+  
+
+  <div class="container">
+      <nav id="contents-nav">
+  <h2>Contents</h2>
+  <ul>
+    <li><a href="#main">ChampionCraft Season 2</a></li>
+    <li><a href="#spawn">Spawn</a></li>
+    <li><a href="#hall"> Town Hall</a></li>
+    <li><a href="#garden">Comunity gardens</a></li>
+    <li><a href="#2">Town 2</a></li>
+    <li><a href="#mall">The ChampionCraft Mall</a></li>
+    <li><a href="#3">Town 3</a></li>
+    <li><a href="#nether">The Nether</a></li>
+    <li><a href="#highway">Nether Highways</a></li>
+    <li><a href="#social">Social Media</a></li>
+    <li><a href="#video">Simbian's Videos</a></li>
+    <li><a href="#yt">YouTube and Subreddit</a></li>
+    <li><a href="#discord">Discord Server</a></li>
+    <li><a href="#reddit">Reddit Ads</a></li>
+    <li><a href="#extra">Extra Stuff</a></li>
+    <li><a href="#0">Town 0</a></li>
+    <li><a href="#cr">Comunist republic</a></li>
+    <li><a href="#bases">Bases</a></li>
+    <li><a href="#relaunch">Rerelases</a></li>
+    <li><a href="#20">2020 Rerelease</a></li>
+    <li><a href="#24">2024 Rerelease</a></li>
+    <li><a href="#source">Sources and Contributors</a></li>
+  </ul>
+</nav>
+    <!-- Main Content -->
+    <article>
+      
+      <h2 id="main">ChampionCraft 2</h2>
+      <p>Championcraft 2 was the the 5th season in the timeline and the fist with the concept of nations which it took inspiration from the <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/simbian/" class="reference-link" id="ref1">Lands of Molui</a>. It had 36 seasons in total</p>
+      <h2 id="spawn">Spawn</h2>
+                    <div class="thumb">
+        <img src="inside.png" alt="Town Hall from the inside" onclick="openLightbox(this)">
+        <div class="caption">Town Hall from the inside</div>
+        </div>
+       <p>Spawn of this season was the center of almost all action as the concept of this season was based around towns similar to it's predecessor thus everything was here, untill at a later date Town 2 and Town 3 were introduced.</p>
+       <h3 id="hall">Town Hall</h3>
+             <div class="thumb">
+        <img src="hall.png" alt="Town Hall from the outside" onclick="openLightbox(this)">
+        <div class="caption">Town Hall from the outside</div>
+        </div>
+
+       <p>Town hall was built verry early into the season, a hundred or so blocks from spawn and it also allowed players to exchange items using the chests near its fountain and request help from others. it also featured a few public furnaces and crafting tables. It had an Announcements board where important changes were announced incase players didnt have Discord.</p>
+       <h3 id="garden">Comunity Gardens</h3>
+       <p>Comunity gardens were built right next to spawn go give new players an easy access to food.</p>
+       <h2 id="2">Town 2</h2>
+             <div class="thumb">
+        <img src="town2.png" alt="Town 2" onclick="openLightbox(this)">
+        <div class="caption">Town 2</div>
+        </div>
+
+       <p>Town 2, later renamed to Town 3 was built on January 18th 2020 and it expanded living area and introduced the ChampionCraft Mall where players could buy plot and offer various items using whatever items the shop owners decided to use as currency though the standart currency was gold nuggets. Outside the mall there was another shop named "KMart" but it was never finnished.</p>
+        <h3 id="mall">The ChampionCraft Mall</h3>
+        <div class="thumb">
+        <img src="mall.png" alt="Inside the ChampionCraft Mall's first floor" onclick="openLightbox(this)">
+        <div class="caption">Inside the ChampionCraft Mall's first floor</div>
+        </div>
+        <p>The mall was opened on February 16th 2020 had 3 main floors, the first floor conatined Sadwichking9's and <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/megagamer/" class="reference-link" id="ref1">Mega gamer6576's </a>Bar, <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/megagamer/" class="reference-link" id="ref1">Mega gamer's</a> Construction facility, Pope's Restaurant, <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/gamesline/" class="reference-link" id="ref1">GamesLines's </a> hardware store, hecturrrr's pawn shop and CokoTokos Eggcelent Eggs as well and an escalator to go to the second floor. The second floor contained CocoToco's Flower Store as well as an unfinnised Pet Shop and a few more open plots, it also had a jukebox in between the escalator with some music discs to play. The third floor was unfinnshed and it only contained a few open claims purchasable for 3-6 stacks of gold nuggets and a level 4 beacon built by <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/gam3rlegend/" class="reference-link" id="ref1">Gam3r</a> proving players with regenaration and resistance. The mall also featured a glass pane door for an enterence and escalators which would slowly take you between floors, both powered by command blocks. Shops in the mall also had to pay taxes which were 20% of the profits that the shop has earned within an unspecified duration of time.</p>
+      <h2 id="3">Town 3</h2>
+            <div class="thumb">
+        <img src="town3.png" alt="Town 3" onclick="openLightbox(this)">
+        <div class="caption">Town 3</div>
+      </div>
+      <p>Town 3 was created near the end of the season to attempt to bring back some activity to the realm, Town 3 was also named Town 2 and as a side effect Town 2 was renamed to Town 3, but I will refer to it as Town 3, Town 3 didnt have any actual builds untill the 2024 rerelease and the builder of it is <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/flipswap/" class="reference-link" id="ref1">Flipswap</a> which follows the towns rustic theme. It also has a few info boards near its nether portal. Rules of this town were the same as the other towns howerver there additional rules like the towns buildings have to be bellow Y 110 and there has to be no modern looking builds. there is also 9 diamond block wall with a sign on it that says "the next person that sees this tell me... -Phugnugs".</p>
+
+       <h2 id="nether">The Nether</h2>
+            <div class="thumb">
+        <img src="nether.png" alt="Nether hub" onclick="openLightbox(this)">
+        <div class="caption">Nether hub</div>
+      </div>
+      <p>The nether had a hub where all the Ice highways branched out to all the players bases and the 2 additional towns. Main use of the nether hub was using the 5 nether highways to travel between players bases and Town 2 and 3, player that had their bases set up up to 2000 blocks away from town could also get their highways constructed for free. Players could build in the hub and customise their highway branches but not the main highway.</p>
+      <h3 id="highway">Nether Highways</h3>
+      <p>There were 5 highways it total, 2 in the east, 2 in the noth and 1 in the west, south only had the exit to the nether. The first eastern highway had exits to YkVae's, <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/gam3rlegend/" class="reference-link" id="ref1">Gam3r Legend's</a> and creepo123's bases as well as Town 2 and 3 and a base for sale. The second eastern highway had exits to Sandwichking's, <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/gamesline/" class="reference-link" id="ref1">GamesLines's</a>, <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/simbian/" class="reference-link" id="ref1">Simbian Gaming's</a>, Galaxitalix's and <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/champ/" class="reference-link" id="ref1">Chaamp10n's</a>and Drilxn's bases. The first nothern highway only lead to <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/ogphantoms/" class="reference-link" id="ref1">OG Phantom's</a> base, while the second lead only to N3WK13TheBomb's base. The eastern highway only lead to Enderboyz's base.</p>
+      <h2 id="social">Social Media</h2> 
+                  <div class="thumb">
+        <img src="video.png" alt="ChampionCraft video uploaded by Simbian Gaming (S1EP36)" onclick="openLightbox(this)">
+        <div class="caption">Latest ChampionCraft video uploaded by Simbian Gaming (S1EP36)</div>
+      </div>
+      <p>Championcraft had many instances on social media, most known one being the Championcraft YouTube series by <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/simbian/" class="reference-link" id="ref1">Simbian Gaming</a> as well as its reddit advertisements by its owner</p>
+       <h3 id="video">Simbian's Videos</h3>
+       <p>As of October 2nd 2025 <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/simbian/" class="reference-link" id="ref1">Simbian</a> has uploaded 37 episodes of the Championcraft series since January 21st 2020, with the first one beig titled "Welcome to championcraft" and the current one "its the longest season in the timeline now | ChampionCraft S1EP36".</p>
+              <h3 id="yt">Mistery YouTube Channel and Subreddit</h3>
+                          <div class="thumb">
+        <img src="ccmc.png" alt="Championcraft YouTube logo stand" onclick="openLightbox(this)">
+        <div class="caption">Championcraft YouTube logo stand</div>
+      </div>
+       <p>Near spawn there used to be a YouTube logo stand where ChampionCraft's offical YouTube Channel and subreddit were advertised,the youtube channel is considered lost to time as this is the only proof that is existed if it ever did and the sub reddit can still be found at <a href="https://www.reddit.com/r/ChampionCraft/" class="reference-link" id="ref1">r/ChampionCraft</a> owned by the realms owner.</p>
+    <h3 id="discord">Discord server</h3>
+    <p>ChampionCraft had its own discord server that was created on January 14th 2020 and it was replaced by the new one on May 12th 2020, not much is known about the original Discord server as it was deleted a few weeks after the new one was made.</p>
+    <h3 id="reddit">Reddit ads</h3>
+    <p><a href="https://simbiantech.github.io/Site/wiki/championcraft/players/champ/" class="reference-link" id="ref1">Chaamp10n</a>frequently advertised the realm on reddit as thats from where most of its playerbase came from. Advertisements for season 1 advertised how the realm has "been growing quite well| and that "it's basically a really chill town style realm where you can do pretty much whatever you want"<a href="#note1">[1]</a></sup> </p>
+   <h2 id="extra">Extra Stuff</h2>
+   <div class="thumb">
+        <img src="cr.png" alt="Communist Republic" onclick="openLightbox(this)">
+        <div class="caption">Communist Republic</div>
+      </div>
+   <h3 id="0">Town 0</h3>
+   <p>Town 0 was created after a tower that reached the build limit was shortend by realms staff as it broke the y110 max height rule at the time, so <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/simbian/" class="reference-link" id="ref1">Simbian</a> created a town that didnt have these rules and built the same tower anyway, people were invited to the town however noone came.</p>    
+   <h3 id="cr">Comunist republic</h3>
+   <p>Not much information is known about comunist republic, however it used to have border control entering from the main town and was owned by <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/megagamer/" class="reference-link" id="ref1">Mega</a>. In the 2024 relaunch of the season it was claimed by <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/champ/" class="reference-link" id="ref1">Chaamp10n</a> beacause <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/megagamer/" class="reference-link" id="ref1">Mega</a> failed to do so and after that all of CRs banners were replaced by the ChampionCraft banner. CRs banner is a White banner with a blue per bend sinister, gray per bend sinister inverted, red bend and a lime flower charge.</p>    
+   <h3 id="bases">Bases</h3>
+   <p>Bases were introduced later down the seasons lifespan and player could access them via the nether highways, otherwhise they were how you would expect them to, just a normal base not attached to any town or anything.</p>    
+   <h2 id="relaunch">Rereleases</h2>
+   <div class="thumb">
+        <img src="disc.png" alt="Announcements made by Chaamp10n" onclick="openLightbox(this)">
+        <div class="caption">Announcements made by Chaamp10n</div>
+      </div>
+   <p>Championcraft has been rereleased serveral times in its history with some being within the span of season 2 and 3 however it was only for a day or 2, but there has been 2 times where it has been rereleased for longer. </p>
+   <h3 id="20">2020 Rerelease</h3>
+   <p>Frist time Championcraft rereleased was less than a year after it originally launched, for the first 2 weeks it used the <a href="https://simbiantech.github.io/Site/wiki/championcraft/servers/championcraft2/" class="reference-link" id="ref1">Championcraft 2</a> world and only after 2 weeks it switched to the Championcraft 1 world but that wasnt initially the plan as instead of the first season it was meant to be something completly new.</p>
+   <h3 id="24">2024 Rerelease</h3>
+   <p>The second time that Championcraft 1 came back was after the ending of <a href="https://simbiantech.github.io/Site/wiki/championcraft/servers/greencraft/" class="reference-link" id="ref1">GreenCraft SMP</a> has ended, which at the time was was almost 5 years since Championcraft 1 originally started. the comeback of season 1 was originally revealed with a trailer video posted by <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/champ/" class="reference-link" id="ref1">Chaamp10n</a> in the announcements channel of the realms disord server as well as a potential comeback of season 2 which hasnt happend yet, after a while the realms owner has added biomes to the main town making it look more unique and well as the tow square being updated to look like its season 2 counterpart, the world download has also been promised but so far its not available. Championcraft 1 Returning December 28th is now the longest season in the timeline lasting over 9 months compared to the previous longest season (GreenCraft SMP) lasting only 5 months and 1 day.</p>
+   <h2 id="source">Sources and Contributors</h2>
+   <p>Written by: <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/simbian" class="reference-link" id="ref1">Simbian</a><br>Additional information provided by:<br><a href="https://simbiantech.github.io/Site/wiki/championcraft/players/flipswap/" class="reference-link" id="ref1">Flipswap</a><br><p id="note1">1 - One of the most popular ChampionCraft  <a href="https://www.reddit.com/r/mcrealmsservers/comments/ej41mv/hey_i_have_a_free_survival_realm_thats_been/">reddit ads</a></p>
+  </article>
+    <!-- Infobox -->
+    <aside class="infobox">
+      <img src="bg.jpg" alt="Spawn by u/Open4colby" onclick="openLightbox(this)">
+      <div class="caption">Spawn <br>by u/Open4colby</div>
+      <img src="banner.png" alt="Season banner" onclick="openLightbox(this)">
+      <div class="caption">Season banner</div>
+      <table>
+        <tr><td><b>Owner</b></td><td>Chaamp10n</td></tr>
+        <tr><td><b>Started</b></td><td>March 24, 2020</td></tr>
+        <tr><td><b>Ended</b></td><td>June 22, 2020</td></tr>
+        <tr><td><b>Style</b></td><td>Nations (CC2)</td></tr>
+        <tr><td><b>Seed</b></td><td>-1337710146<br>Bedrock, Pre-1.18</td></tr>
+        <tr><td><b>Downloads</b></td><td>Unavailable</td></tr>
+        <tr><td><b>Predecessor</b></td><td><a href="https://simbiantech.github.io/Site/wiki/championcraft/servers/championcraft1/" class="reference-link" id="ref1">Championcraft 1</a></td></tr>
+        <tr><td><b>Successor</b></td><td><a href="https://simbiantech.github.io/Site/wiki/championcraft/servers/championcraft3/" class="reference-link" id="ref1">Championcraft 3</a></td></tr>
+        <tr><td><b>Spin-off</b></td><td><a href="https://simbiantech.github.io/Site/wiki/championcraft/servers/championcraftsmp/" class="reference-link" id="ref1">Championcraft SMP</a></td></tr>
+      </table>
+    </aside>
+  </div>
+  <!-- Footer -->
+<div class="footer-overlay">
+  <footer class="bottom-popup custom-footer">
+    <p class="footer-top-text">Background: ChampionCraft 2</p>
+    <div class="footer-links">
+      <a href="https://simbiantech.github.io/Site/wiki/championcraft/more/"><img src="more-icon.png" alt="" /> More</a>
+      <a href="https://simbiantech.github.io/Site/wiki/championcraft/addons/"><img src="addons-icon.png" alt="" /> Addons</a>
+      <a href="https://simbiantech.github.io/Site/wiki/championcraft/players/"><img src="players-icon.png" alt="" /> Players</a>
+      <a href="https://simbiantech.github.io/Site/wiki/championcraft/servers/"><img src="servers-icon.png" alt="" /> Servers</a>
+      <a href="https://simbiantech.github.io/Site/wiki/championcraft/nations/"><img src="nations-icon.png" alt="" /> Nations</a>
+      <a> </a>
+      <a href="https://simbiantech.github.io/Site/"><img src="https://simbiantech.github.io/Site/resources/linktree-icon.webp" alt="" /> Simbian's Attic</a>
+      <a href="https://simbiantech.github.io/Site/downloads/downloads.html"><img src="https://simbiantech.github.io/Site/resources/downloads-icon.webp" alt="" /> Downloads</a>
+    <p class="footer-bottom-text">© 2025 Simbian Tech</p>
+  </footer>
+    
+</div>
+<script>
+    
+        function toggleMenu() {
+            const mobileMenu = document.getElementById("mobileMenu");
+            mobileMenu.classList.toggle("active");
+        }
+      
+
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('body *').forEach(el => {
+      if (el.childNodes.length) {
+        el.childNodes.forEach(node => {
+          if (node.nodeType === Node.TEXT_NODE && node.textContent.includes("❤️")) {
+            const parts = node.textContent.split("❤️");
+            const fragment = document.createDocumentFragment();
+
+            parts.forEach((part, index) => {
+              fragment.appendChild(document.createTextNode(part));
+              if (index < parts.length - 1) {
+                const img = document.createElement("img");
+                img.src = "Heart.png"; // <-- path to your image
+                img.alt = "Heart";
+                img.style.width = "9px";  // adjust size
+                img.style.height = "9px";
+                img.style.verticalAlign = "middle";
+                fragment.appendChild(img);
+              }
+            });
+
+            el.replaceChild(fragment, node);
+          }
+        });
+      }
+    });
+  });
+</script>
+<!-- Add just before </body> -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <!-- Close Button -->
+    <img src="close-icon.png" class="lightbox-btn close" alt="Close" onclick="closeLightbox(event)">
+
+    <!-- Enlarged Image -->
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-text" id="lightbox-text"></div>
+</div>
+
+<script>
+function openLightbox(img) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = img.src;
+    document.getElementById("lightbox-text").innerText = img.alt;
+}
+
+function closeLightbox(event) {
+    if (event.target.id === "lightbox" || event.target.classList.contains("close")) {
+        document.getElementById("lightbox").style.display = "none";
+    }
+}
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        document.getElementById("lightbox").style.display = "none";
+    }
+});
+</script>
+  <meta property="og:title" content="ChampionCraft Season 2 - ChampionCraft Wiki">
+<meta property="og:description" content="The first Championcraft Season">
+<meta property="og:image" content="https://simbiantech.github.io/Site/wiki/championcraft/servers/championcraft1/banner.png">
+<meta property="og:url" content="https://simbiantech.github.io/Site/wiki/championcraft/servers/championcraft1/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ChampionCraft Season 2 - ChampionCraft Wiki">
+<meta name="twitter:description" content="The first Championcraft Season">
+<meta name="twitter:image" content="https://simbiantech.github.io/Site/downloads/worlds/CC/1/Cave.png">
+</body>
+</html>
