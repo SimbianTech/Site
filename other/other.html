@@ -265,6 +265,7 @@
 
 
 </style>
+    <link rel="stylesheet" href="https://simbiansattic.lt/css/popup.css">
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
 <link rel="icon" href="icon.png" type="image/png">
 </head>
@@ -348,6 +349,17 @@
     </div>
     
 </div>
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="bottom-popup">
+            <p class="popup-title">Github pages shutting down!</p>
+            <p class="popup-text">this website has been moved to https://simbiansattic.lt , go there to continue using this site</p>
+            
+            <button class="popup-dismiss" onclick="dismissPopup()" href="https://simbiansattic.lt">Close</button>
+             <a class="popup-dismiss" onclick="dismissPopup()" href="https://simbiansattic.lt/">New Website</a>
+            <div class="popup-border-bottom"></div>
+        </div>
+    </div>
+</div>
 
 <!-- Footer -->
 <div class="footer-overlay">
@@ -368,6 +380,10 @@
         const mobileMenu = document.getElementById("mobileMenu");
         mobileMenu.classList.toggle("active");
     }
+        function dismissPopup() {
+    const overlay = document.getElementById("popupOverlay");
+    overlay.style.display = "none";
+}
 </script>
 </body>
 </html>

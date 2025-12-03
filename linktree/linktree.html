@@ -275,68 +275,8 @@
     margin-bottom: 30px;
 }
 
-.popup-dismiss {
-    position: absolute;
-    bottom: 15px;
-    transform: translateX(-50%);
-    bottom: 15px;
-    left: 50%;
-    width: 325px;
-    height: 55px;
-                    
-            background: url('buttonsmall.png') no-repeat center center/cover, rgba(60, 106, 156, 0.512);;
-    border: none;
-    cursor: pointer;
-    color: #00A2E8;
-    font-family: 'Lilita One', cursive;
-    font-size: 22px;
-    font-weight: 0;
-    text-align: center;
-    transition: transform 0.2s;
-        }
 
-        .popup-dismiss:hover {
-            transform: translate(-50%, -3px);
-            
-        }
 
-        .popup-dismiss:active {
-            transform: translate(-50%, 1px);
-        }
-        .popup-dismiss2 {
-    position: absolute;
-    bottom: 15px;
-    transform: translateX(-50%);
-    bottom: 80px;
-    left: 50%;
-    width: 325px;
-    height: 55px;
-                    
-            background: url('buttonsmall.png') no-repeat center center/cover, rgba(60, 106, 156, 0.512);;
-    
-    border: none;
-    cursor: pointer;
-    color: #00A2E8;
-    font-family: 'Lilita One', cursive;
-    font-size: 22px;
-    font-weight: 0;
-    text-decoration: none;
-    text-align: center;
-    transition: transform 0.2s;
-    display: flex;
-    align-items: center;  /* <-- center text vertically */
-    justify-content: center; /* <-- center text horizontally */
-        }
-
-        .popup-dismiss2:hover {
-            transform: translate(-50%, -3px);
-            
-        }
-
-        .popup-dismiss2:active {
-            transform: translate(-50%, 1px);
-        }
-.footer-top-text,
 .footer-bottom-text {
   margin: 10px 0;
   font-size: 22px;
@@ -414,6 +354,7 @@
 
         }
 </style>
+    <link rel="stylesheet" href="https://simbiansattic.lt/css/popup.css">
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
 <link rel="icon" href="https://simbiantech.github.io/Site/resources/icon.webp" type="image/png">
 </head>
@@ -521,12 +462,11 @@
     </div>
     <div class="popup-overlay" id="popupOverlay">
         <div class="bottom-popup">
-            <p class="popup-title">ℹ️ Selling information</p>
-            <p class="popup-text">Selling operations have returned to normal</p>
-            <p class="popup-title">ℹ️ 10 years of Simbian Gaming!</p>
-            <p class="popup-text">The Announcements 2025 Part 2 - 10 years of Simbian Gaming will discuss the future of how my content is made. The Premiere starts on October 21st 2025 at 20:00 EET (i think?), click the button bellow to watch the announcements, part 1 linked in the description! <br><br><br></p>
-            <a class="popup-dismiss2" href="https://www.youtube.com/watch?v=LPmUmNxBVac">Watch Announcements PT2 Video</a>
-            <button class="popup-dismiss" onclick="dismissPopup()">OK</button>
+            <p class="popup-title">Github pages shutting down!</p>
+            <p class="popup-text">this website has been moved to https://simbiansattic.lt , go there to continue using this site</p>
+            
+            <button class="popup-dismiss" onclick="dismissPopup()" href="https://simbiansattic.lt">Close</button>
+             <a class="popup-dismiss" onclick="dismissPopup()" href="https://simbiansattic.lt/">New Website</a>
             <div class="popup-border-bottom"></div>
         </div>
     </div>

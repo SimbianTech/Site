@@ -354,6 +354,7 @@
 <body>
 <!-- Header -->
 <div class="header">
+        <link rel="stylesheet" href="https://simbiansattic.lt/css/popup.css">
     <a href="https://simbiantech.github.io/Site/" class="title">Simbian's Attic</a>
     <!-- Buttons Container on the Left -->
     <div class="header-buttons">
@@ -496,7 +497,17 @@
         <img src="s1210.jpg" alt="Candidate for Summer 12." data-season="Summer, Candidates" onclick="openLightbox(this)"loading="lazy">
         <img src="a111.jpg" alt="Candidate for Autumn 11." data-season="Autumn, Candidates" onclick="openLightbox(this)"loading="lazy">
         <img src="a112.jpg" alt="Candidate for Autumn 11." data-season="Autumn, Candidates" onclick="openLightbox(this)"loading="lazy">
-    
+              <div class="popup-overlay" id="popupOverlay">
+        <div class="bottom-popup">
+            <p class="popup-title">Github pages shutting down!</p>
+            <p class="popup-text">this website has been moved to https://simbiansattic.lt , go there to continue using this site</p>
+            
+            <button class="popup-dismiss" onclick="dismissPopup()" href="https://simbiansattic.lt">Close</button>
+             <a class="popup-dismiss" onclick="dismissPopup()" href="https://simbiansattic.lt/">New Website</a>
+            <div class="popup-border-bottom"></div>
+        </div>
+    </div>
+</div>
         <!-- Other -->
         <img src="PSMP7.png" alt="Special end of Peculiar SMP 6 background, used only for streams." data-season="Other, Candidates" onclick="openLightbox(this)"loading="lazy">
     </div>
@@ -517,7 +528,7 @@
             <img src="https://simbiantech.github.io/Site/resources/external.webp" class="open-btn" alt="Open in New Tab">
             
         </a>
-    
+
         <!-- Lightbox Image -->
         <img id="lightbox-img" src="" alt="">
         <div class="lightbox-text" id="lightbox-text"></div>
@@ -600,6 +611,10 @@ function filterGallery(season) {
     document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("button[data-season='All']").classList.add("active");
     });
+            function dismissPopup() {
+    const overlay = document.getElementById("popupOverlay");
+    overlay.style.display = "none";
+}
     </script>
 </body>
 </html>
