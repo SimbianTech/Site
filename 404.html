@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found - Simbian's Attic</title>
+    <title>Github pages have been shut down - Simbian's Attic</title>
 
     <link rel="stylesheet" href="https://simbiansattic.lt/css/linkTree.css">
+    <link rel="stylesheet" href="https://simbiansattic.lt/css/popup.css">
+    <link rel="stylesheet" href="https://simbiansattic.lt/css/footer.css">
 
-
+    <meta http-equiv="refresh" content="1; https://simbiansattic.lt/">
     <style>
         /* General Reset */
         * {
@@ -21,367 +23,29 @@
     background: #4a4a4a;
     background-attachment: fixed;
     color: #00A2E8;
-    min-height: 100vh;
-align-items: center;
-    /* FLEXBOX sticky footer layout */
-    display: flex;
-    flex-direction: column;
-
-    padding: 0;
-    font-size: 125%;
-        }
-
-        /* Header */
-        .header {
-            height: 75px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            backdrop-filter: blur(10px);
-            background: rgba(19, 28, 51, 0.7);
-            color: #00A2E8;
-            font-size: 30px;
-            font-weight: 0;
-            z-index: 1000;
-        }
-
-        .header .title {
-            cursor: pointer;
-            text-decoration: none;
-            color: #00A2E8;
-        }
-
-        .header .header-buttons {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .header .header-button {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            font-size: 20px;
-            color: #00A2E8;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .header .header-button img {
-            width: 33px;
-            height: 33px;
-        }
-
-        /* Hamburger Menu */
-        .hamburger-menu {
-            display: none;
-            cursor: pointer;
-        }
-
-        .hamburger-menu img {
-            width: 33px;
-            height: 33px;
-        }
-
-        /* Mobile Menu (Full Screen and Visible by Default) */
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(19, 28, 51, 0.7);
-            color: #00A2E8;
-            padding: 50px 20px;
-            text-align: center;
-            overflow-y: auto;
-            backdrop-filter: blur(10px); /* Apply blur to the menu */
-            z-index: 999;
-        }
-
-        .mobile-menu a {
-            display: block;
-            color: #00A2E8;
-            font-size: 24px;
-            text-decoration: none;
-            margin: 20px 0;
-            padding: 10px;
-            font-weight: 500;
-        }
-
-        .mobile-menu a img {
-            width: 40px;
-            height: 40px;
-            margin-right: 15px;
-        }
-
-        .mobile-menu a:hover {
-            background-color: #333;
-        }
-
-        /* Show Mobile Menu when active */
-        .mobile-menu.active {
-            display: block;
-        }
-
-
-        
-
-        /* Sections */
- /* Link Tree Section */
-       .container {
-    margin-top: 150px;
-    width: 100%;
-    max-width: 700px;
-
-    /* important for sticky footer */
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-}
-
-        .category {
-            width: 100%;
-            text-align: center;
-        }
-
-        .category-title {
-            font-size: 25px;
-            margin-bottom: 10px;
-            color: #00A2E8;
-             text-shadow:
--2px -2px 0 #99D9EA,
-     2px -2px 0 #99D9EA,
-    -2px  2px 0 #99D9EA,
-     2px  2px 0 #99D9EA,
-    -2px  0px 0 #99D9EA,
-     2px  0px 0 #99D9EA,
-     0px -2px 0 #99D9EA,
-     0px  2px 0 #99D9EA;
-        
-        }
-
-        .titlea {
-            font-size: 45px;
-            margin-bottom: 15px;
-            color: #00A2E8;
-             text-shadow:
--2px -2px 0 #99D9EA,
-     2px -2px 0 #99D9EA,
-    -2px  2px 0 #99D9EA,
-     2px  2px 0 #99D9EA,
-    -2px  0px 0 #99D9EA,
-     2px  0px 0 #99D9EA,
-     0px -2px 0 #99D9EA,
-     0px  2px 0 #99D9EA;
-        
-        }
-
-        .link-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-
-      .link-button {
-            display: block;
-            width: 450px;
-            height: 55px;
-            text-align: center;
-            line-height: 55px;
-            text-decoration: none;
-            font-size: 22px;
-            font-weight: 0;
-            color: #00A2E8;
-            backdrop-filter: blur(10px);
-            background: url('https://simbiantech.github.io/Site/button.png') no-repeat center center/cover, rgba(19, 28, 51, 0.7);;
-            border: none;
-            transition: transform 0.2s;
-        }
-
-        .link-button:hover {
-            transform: translateY(-3px);
-        }
-
-        .link-button:active {
-            transform: translateY(1px);
-        }
-.footer-top-text,
-.footer-bottom-text {
-  margin: 10px 0;
-  font-size: 22px;
-  color: #00a2e8;
-  text-shadow:
--2px -2px 0 #99D9EA,
-     2px -2px 0 #99D9EA,
-    -2px  2px 0 #99D9EA,
-     2px  2px 0 #99D9EA,
-    -2px  0px 0 #99D9EA,
-     2px  0px 0 #99D9EA,
-     0px -2px 0 #99D9EA,
-     0px  2px 0 #99D9EA;
-
-}
-
-.footer-links {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px 30px;
-  margin: 20px 0;
-  width: 100%;
-  max-width: 500px;
-}
-
-.footer-links a {
-  display: flex;
-  align-items: center;
-  color: #00a2e8;
-  text-decoration: none;
-  font-size: 20px;
-  transition: color 0.2s;
-}
-
-.footer-links a:hover {
-  color: #50c9ff;
-}
-
-.footer-links img {
-  width: 22px;
-  height: 22px;
-  margin-right: 8px;
-  filter: drop-shadow(0 0 1px #00a2e8);
-}
-.footer-overlay {
-    margin-top: 25px;
-    width: 100%;
-    background: rgba(19, 28, 51, 0.7);
-    backdrop-filter: blur(5px);
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    background-repeat: repeat-x;
-    background-position: top center;
-    background-size: 10px auto;
-    background-image: url('https://simbiantech.github.io/Site/other/tests/div2.png');
-}
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
- .link-button {
-                width: 325px;
-                backdrop-filter: blur(10px);
-            background: url('https://simbiantech.github.io/Site/buttonsmall.png') no-repeat center center/cover, rgba(19, 28, 51, 0.7);;
- }
-            
-            .header .header-buttons {
-                display: none;
-            }
-
-            .hamburger-menu {
-                display: block;
-            }
-         .footer-links {
-    grid-template-columns: 1fr;
-    text-align: left;
-    padding: 0 10px;
-         }
 
         }
     </style>
-    <link rel="stylesheet" href="https://simbiansattic.lt/css/linkTree.css">
-  <div class="header">
-    <a href="https://simbiansattic.lt/" class="title">Simbian's Attic</a>
-    <!-- Buttons Container on the Left -->
-    <div class="header-buttons">
-        <a href="https://simbiansattic.lt/other/" class="header-button">
-            <img src="https://simbiansattic.lt/resources/others-icon.webp" alt="other Icon"> Other
-        </a>
-        <a href="https://simbiansattic.lt/gallery/" class="header-button">
-            <img src="https://simbiansattic.lt/resources/gallery-icon.webp" alt="Gallery Icon"> Gallery
-        </a>
-        <a href="https://simbiansattic.lt/downloads/" class="header-button">
-            <img src="https://simbiansattic.lt/resources/downloads-icon.webp" alt="Downloads Icon"> Downloads
-        </a>
-        <a href="https://simbiansattic.lt/linktree/" class="header-button">
-            <img src="https://simbiansattic.lt/resources/linktree-icon.webp" alt="Link Tree Icon"> Link Tree
-        </a>
+  
+<link rel="icon" href="https://simbiansattic.lt/resources/icon.webp" type="image/png">
+
+</div>
+</div>
+</div>
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="bottom-popup">
+            <p class="popup-title">⚠️ Github pages have been shut down!</p>
+            <p class="popup-text">this website has been moved to https://simbiansattic.lt, go there to continue using this site<br><br></p>
+            
+            
+            
+             <a class="popup-dismiss" onclick="dismissPopup()" href="https://simbiansattic.lt/">New Website</a>
+             <p class="footer-bottom-text"><br>© 2025 Simbian Tech.</p>
+            <div class="popup-border-bottom"></div>
+        </div>
     </div>
-
-   <!-- Hamburger Menu -->
-<div class="hamburger-menu" onclick="toggleMenu()">
-    <img id="hamburgerIcon" src="https://simbiansattic.lt/resources/ham.webp" alt="Menu Icon">
-</div>
-</div>
-<!-- Context Dropdown Menu -->
-<div class="mobile-menu" id="mobileMenu">
-    <a href="https://simbiansattic.lt/other/">
-        <img src="https://simbiansattic.lt/resources/others-icon.webp" alt="Other"> Other
-    </a>
-    <a href="https://simbiansattic.lt/gallery/">
-        <img src="https://simbiansattic.lt/resources/gallery-icon.webp" alt="Gallery"> Gallery
-    </a>
-    <a href="https://simbiansattic.lt/downloads/">
-        <img src="https://simbiansattic.lt/resources/downloads-icon.webp" alt="Downloads"> Downloads
-    </a>
-    <a href="https://simbiansattic.lt/linktree/">
-        <img src="https://simbiansattic.lt/resources/linktree-icon.webp" alt="Other"> Link Tree
-    </a>
-      <a href="https://simbiansattic.lt/privacypolicy/">
-        <img src="https://simbiansattic.lt/resources/privacy-icon.webp" alt="Other"> Privacy Policy
-    </a>
-    <a href="https://simbiansattic.lt/contuse/">
-        <img src="https://simbiansattic.lt/resources/content-icon.webp" alt="Link Tree"> Content Use
-    </a>
-</div>
 </div>
 
-
-    <!-- Sections -->
-    <div class="container">
-        <div class="category">
-            <div class="titlea">404</div>
-            <div class="category-title">Page Not Found :(</div>
-            <div class="category-title">This page is not exist</div>
-        <div class="category-title">All the links here lead to the new website.</div>
-        <div class="category-title">Shutting down on December 17th!!!</div>
-            <div class="link-group">
-                           <a href="https://discord.gg/rKBt8swwwm" class="link-button">
-    <img src="https://simbiansattic.lt/resources/discord-icon.png" alt="Discord Icon">Discord Server
-    </a>
-               <a href="https://simbiansattic.lt/linktree/" class="link-button">
-    <img src="https://simbiansattic.lt/resources/linktree-icon.webp" alt="Discord Icon">Link Tree
-    </a>
-               <a href="https://simbiansattic.lt/" class="link-button">
-    <img src="https://simbiansattic.lt/resources/home-icon.png" alt="Discord Icon">Home
-    </a>
-</div>
-</div>
-</div>
-    <!-- Footer -->
-     <div class="footer-overlay">
-  <footer class="custom-footer">
-    <p class="footer-top-text">Background: Default</p>
-    <div class="footer-links">
-      <a href="https://simbiansattic.lt/linktree/linktree.html"><img src="https://simbiansattic.lt/resources/linktree-icon.webp" alt="" /> Link Tree</a>
-      <a href="https://simbiansattic.lt/gallery/gallery.html"><img src="https://simbiansattic.lt/resources/gallery-icon.webp" alt="" /> Gallery</a>
-      <a href="https://simbiansattic.lt/downloads/downloads.html"><img src="https://simbiansattic.lt/resources/downloads-icon.webp" alt="" /> Downloads</a>
-      <a href="https://simbiansattic.lt/other/other.html"><img src="https://simbiansattic.lt/resources/others-icon.webp" alt="" /> Other</a>
-      <a href="https://simbiansattic.lt/privacypolicy/PP.html"><img src="https://simbiansattic.lt/resources/privacy-icon.webp" alt="" /> Privacy Policy</a>
-      <a href="https://simbiansattic.lt/contuse/use.html"><img src="https://simbiansattic.lt/resources/content-icon.webp" alt="" /> Content Use</a>
-    </div>
-    <p class="footer-bottom-text">© 2025 Simbian Tech.</p>
-  </footer>
     
     <script>
         function toggleMenu() {
