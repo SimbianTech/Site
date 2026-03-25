@@ -1,0 +1,79 @@
+  /* Left Section */
+        .left-section {
+            word-wrap: break-word; /* Ensures long words are broken to wrap within the container */
+            word-break: break-word; /* Adds fallback for additional support */
+            white-space: pre-wrap; /* Preserves line breaks in text while allowing wrapping */
+            overflow-wrap: break-word; /* Breaks words that are too long for the container */
+            position: fixed;  /* Make the left section fixed in the viewport */
+            top: 74px;  /* Add the 75px gap from the top */
+            left: 0;  /* Align to the left of the viewport */
+            height: 100vh;  /* Full height of the viewport */
+            width: 33.33%;
+            background: rgba(24, 42, 61, 0.7);
+            backdrop-filter: blur(10px); /* Blur the background */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: top;
+            text-align: left;
+            z-index: 1;  /* Ensure it appears above the right section */
+            overflow-y: auto;
+
+             /* Add the texture to the right edge */
+            background-image: url('/resources/div.webp'); /* Replace with the path to your texture */
+            background-repeat: repeat-y;  /* Repeat vertically */
+            background-position: right top;  /* Position the texture on the right side */
+            background-size: auto 10%;  /* Adjust the texture size to repeat vertically in small blocks */
+            background-size: 10px auto;  /* Set the texture width to 5px and allow it to stretch vertically */
+        }
+
+        .left-section .title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+              text-shadow:
+-3px -3px 0 #99D9EA,
+     3px -3px 0 #99D9EA,
+    -3px  3px 0 #99D9EA,
+     3px  3px 0 #99D9EA,
+    -3px  0px 0 #99D9EA,
+     3px  0px 0 #99D9EA,
+     3px -3px 0 #99D9EA,
+     0px  3px 0 #99D9EA;
+        
+        }
+
+        .left-section .text {
+            font-size: 1.2em;
+        }
+        .left-section::-webkit-scrollbar {
+    width: 20px; /* Increased to accommodate offset */
+}
+
+.left-section::-webkit-scrollbar-thumb {
+    background-color: #00A2E8;
+    border-radius: 1px;
+    border: 100px solid transparent; /* Maintains offset within the track */
+    background-clip: content-box; /* Ensures thumb stays within track area */
+}
+
+.left-section::-webkit-scrollbar-track {
+    margin-left: 20px; /* Offsets the scrollbar from the content */
+}
+
+@media (max-width: 900px) {
+ .left-section {
+        top: 0;
+        width: 100%;  /* Make it take full width */
+        position: relative;  /* Remove the fixed positioning */
+        height: auto;  /* Allow height to adjust to content */
+        margin-top: -1px;  /* Remove the left margin (though margin-left wasn't set on left-section previously) */
+                /* Position the texture at the bottom */
+        background-position: bottom center; /* Adjusted to position at the bottom */
+        background-size: 10px auto;  /* Maintain original texture size for vertical stretching */
+        background-image: url('/resources/div2.webp');  /* Replace with your new image */
+        background-repeat: repeat-x;  /* Repeat horizontally instead of vertically */
+        /* REMOVE the conflicting line below */
+        /* height: 33.3%; */
+       
+    }
+}

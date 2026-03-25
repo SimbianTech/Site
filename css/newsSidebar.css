@@ -1,0 +1,110 @@
+ .right-side {
+  position: relative;
+  width: 400px;
+  padding: 5px 5px;
+  padding-top: 20px;
+  background: rgba(19, 28, 51, 0.7);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Top and bottom borders */
+.right-side::before,
+.right-side::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-image: url('/resources/div2.webp');
+  background-repeat: repeat-x;
+  background-size: 10px auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.right-side::before { top: 0; }
+.right-side::after { bottom: -5px; }
+
+/* Left and right borders */
+.right-side .border-left,
+.right-side .border-right {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 10px;
+  background-image: url('/resources/div.webp');
+  background-repeat: repeat-y;
+  background-size: auto 10px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.right-side .border-left { left: 0; }
+.right-side .border-right { right: -5px; }
+
+/* Ensure content stays above borders */
+.right-side * {
+  position: relative;
+  z-index: 3;
+  
+}
+
+    .right-side h2 {
+      text-align: center;
+      font-size: 16px;
+      
+    }
+
+    .right-side iframe {
+      
+      border: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* hides the scrollbar */
+  scrollbar-width: none; /* Firefox */
+    }
+
+
+
+
+iframe::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+.news-frame {
+  
+  border: none;
+  width: 100%;
+  height: 100vh;   /* or whatever height you want */
+  overflow: hidden;     /* removes native scrollbars */
+  scrollbar-width: none; /* Firefox */
+}
+
+.news-frame::-webkit-scrollbar {
+  display: none;  /* Chrome, Edge, Safari */
+}
+ @media (max-width: 768px) {
+     .right-side {
+    width: 90%;
+    margin: 0 auto 20px auto;
+  }
+  .right-side {
+        width: 100%;
+        height: auto;
+        border-left: none;
+        
+      }
+      .right-side iframe {
+        width: 100%;
+        height: 500px;
+      }
+
+      .right-side h2 {
+        font-size: 20px;
+      }
+ }

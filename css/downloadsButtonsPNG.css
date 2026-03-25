@@ -1,0 +1,174 @@
+/* === Right Section === */
+.right-section {
+  width: 66.66%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 33.33%;
+  gap: 20px; /* space between buttons */
+}
+
+/* === Button === */
+.styled-button {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100%;
+  max-width: 870px;
+  aspect-ratio: 870 / 200;
+  height: auto;
+  flex-shrink: 0;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  padding: 20px;
+  gap: 20px;
+  overflow: hidden;
+
+  background-color: rgba(19, 28, 51, 0.7);
+  backdrop-filter: blur(10px);
+  color: #00A2E8;
+  text-decoration: none;
+  font-family: 'Lilita One', cursive;
+
+    transition:
+        background-color 0.4s ease,
+        color 0.3s ease;
+}
+
+.styled-button:hover,
+.styled-button.active {
+  background-color: rgba(38, 68, 100, 0.55);
+  color: #99D9EA;
+  
+}
+
+.styled-button .main-title {
+    
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    
+}
+
+/* Side info text */
+.styled-button .left-info,
+.styled-button .right-info {
+
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+
+}
+
+/* === Icon === */
+.button-icon {
+  height: 70%;           /* scales with button height */
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+/* === Text Container === */
+.button-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* === Main Title === */
+.main-title {
+  font-size: 2.9rem;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  color: #00A2E8;
+   transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* === Info Row === */
+.info-row {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 10px;
+}
+
+/* === Left/Right Info === */
+.left-info,
+.right-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  font-size: 1.5rem;
+  color: #00A2E8;
+}
+
+.left-info div,
+.right-info div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.right-info {
+  text-align: right; /* align right info text to right edge */
+}
+/* === Text color change on hover === */
+.styled-button:hover .main-title,
+.styled-button.active .main-title {
+    color:  #99D9EA; /* Change to whatever hover color you want */
+}
+
+.styled-button:hover .left-info,
+.styled-button.active .left-info,
+.styled-button:hover .right-info,
+.styled-button.active .right-info {
+    color:  #99D9EA; /* Match the main-title hover color or choose different */
+}
+/* === Mobile (scaling text) === */
+@media (max-width: 900px) {
+        .right-section {
+        height: 66.6%;  /* Fix right section width to 66.6% */
+        width: 100%;  /* Make it take full width */
+        margin-left: 0;  /* Remove the margin */
+        padding: 20px;  /* Keep the padding consistent */
+    }
+  .right-section {
+
+    width: 100%;
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .styled-button {
+    max-width: 100%;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .button-icon {
+    height: 64px;
+  }
+
+  /* On mobile: scale text with width */
+  .main-title {
+    font-size: clamp(0.8rem, 4vw + 0.3rem, 2rem);
+  }
+
+  .left-info,
+  .right-info {
+    font-size: clamp(0.8rem, 2.5vw + 0.2rem, 1.2rem);
+  }
+}

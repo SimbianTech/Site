@@ -1,0 +1,70 @@
+/*  downloadsButtonsPNG.css, downloadsButtons.css */
+.main-title {
+    color: #bfbfbf;;
+}
+.styled-button {
+    background-color: rgba(25, 61, 43, 0.7);
+  color: #bfbfbf;
+}
+.styled-button:hover,
+.styled-button.active {
+  background-color: rgba(38, 96, 67, 0.7);
+  color: #ffffff;
+}
+.left-info,
+.right-info {
+  color:  #bfbfbf;;
+}
+
+/* === Text color change on hover === */
+.styled-button:hover .main-title,
+.styled-button.active .main-title {
+    color:  rgb(255, 255, 255); /* Change to whatever hover color you want */
+}
+
+.styled-button:hover .left-info,
+.styled-button.active .left-info,
+.styled-button:hover .right-info,
+.styled-button.active .right-info {
+    color:  #ffffff; /* Match the main-title hover color or choose different */
+}
+/*  downloadsSidebar.css */
+
+        .left-section .title {
+              text-shadow:
+-3px -3px 0 #3c3c3c,
+     3px -3px 0 #3c3c3c,
+    -3px  3px 0 #3c3c3c,
+     3px  3px 0 #3c3c3c,
+    -3px  0px 0 #3c3c3c,
+     3px  0px 0 #3c3c3c,
+     3px -3px 0 #3c3c3c,
+     0px  3px 0 #3c3c3c;
+        
+        }
+
+          .left-section {
+            background: rgba(25, 61, 43, 0.7);
+            background-image: url('/resources/divcave.png'); 
+             background-repeat: repeat-y;  /* Repeat vertically */
+            background-position: right top;  /* Position the texture on the right side */
+            background-size: auto 10%;  /* Adjust the texture size to repeat vertically in small blocks */
+            background-size: 10px auto;  /* Set the texture width to 5px and allow it to stretch vertically */
+            color:  #bfbfbf;;
+          }
+          @media (max-width: 900px) {
+ .left-section {
+    top: 0;
+        width: 100%;  /* Make it take full width */
+        position: relative;  /* Remove the fixed positioning */
+       
+        margin-top: -1px;  /* Remove the left margin */
+                /* Position the texture at the bottom */
+        background-position: bottom center; /* Adjusted to position at the bottom */
+        background-size: 10px auto;  /* Maintain original texture size for vertical stretching */
+                background-image: url('/resources/div2cave.png');  /* Replace with your new image */
+                background-repeat: repeat-x;  /* Repeat horizontally instead of vertically */
+
+       
+    }
+}

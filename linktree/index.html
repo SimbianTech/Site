@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporary Link Tree - Simbian's Attic</title>
+    <link rel="stylesheet" href="/Site/css/header.css">
+    <link rel="stylesheet" href="/Site/css/footer.css">
+    <link rel="stylesheet" href="/Site/css/linkTree.css">
+    <link rel="stylesheet" href="/Site/css/popup.css">
+ <link rel="stylesheet" href="/Site/css/menutext.css">
+ <link rel="stylesheet" href="/Site/css/homeMain.css">
+ <link rel="stylesheet" href="/Site/css/newsSidebar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="icon" href="/resources/icon.webp" type="image/png">
+</head>
+  <meta property="og:title" content="Link Tree">
+  <meta property="og:description" content="A place to find link to all my platforms">
+  <meta property="og:image" content="/resources/linktree-icon.webp">
+  <meta property="og:url" content="/linktree">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_small_image">
+  <meta name="twitter:title" content="Link Tree">
+  <meta name="twitter:description" content="A place to find link to all my platforms">
+  <meta name="twitter:image" content="/resources/linktree-icon.webp">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lilita One', cursive;
+                background: #4a4a4a;
+            background-attachment: fixed;
+            color: #00A2E8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0px;
+            font-size: 125%;
+        }
+
+        .popup-overlay {
+            display: none; 
+        }
+
+
+
+
+        
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+<link rel="icon" href="/resources/icon.webp" type="image/png">
+</head>
+<body>
+<!-- Header -->
+<div class="header">
+    <a href="https://simbiansattic.lt/" class="title">Simbian's Attic</a>
+    <!-- Buttons Container on the Left -->
+    <div class="header-buttons">
+        
+    </div>
+
+    <!-- Hamburger Menu (Image as Icon) -->
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <img id="hamburgerIcon" src="/resources/ham.webp" alt="Menu Icon">
+    </div>
+</div>
+
+<!-- Fullscreen Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+
+    </a>
+    <div class="menutext">Suggested:</div>
+
+    </a>
+</div>
+
+<!-- Link Tree Categories -->
+<div class="container">
+    <div class="category">
+    </div>
+    <div class="category">
+   
+
+        <div class="category-title">- Main -</div>
+        <div class="link-group">
+                                   <a onclick="triggerPopup('popupOverlay2'); return false;" class="link-button" >Contacts
+    </a>
+                       <a onclick="triggerPopup('popupOverlay3'); return false;" class="link-button">
+    <a alt="Icon">Donate
+    </a>
+           <a href="https://discord.gg/rKBt8swwwm" class="link-button">
+   Discord Server
+    </a>
+               <a href="https://www.reddit.com/r/SimbianGaming/" class="link-button">
+    r/SimbianGaming
+    </a>
+        </div>
+    </div>
+    <div class="category">
+        <div class="category-title">- Simbian Tech -</div>
+        <div class="link-group">
+                           <a href="https://www.youtube.com/@SimbianTech" class="link-button">
+   Youtube
+    </a>
+                               <a href="https://www.tiktok.com/@simbiantech" class="link-button">
+   TikTok
+    </a>
+
+        </div>
+    </div>
+        <div class="category">
+        <div class="category-title">- Simbian Tech Stuff -</div>
+        <div class="link-group">
+                                   <a href="https://www.youtube.com/@SimbianTechStuff" class="link-button">
+Youtube
+    </a>
+                               <a href="https://www.tiktok.com/@simbiantechstuff" class="link-button">
+TikTok
+     </a>
+    </div>
+    
+   </div>
+    <div class="category">
+        <div class="category-title">- Simbian Gaming -</div>
+        <div class="link-group">
+                                   <a href="https://www.youtube.com/@SimbianGaming" class="link-button">
+Youtube
+    </a>
+
+                               <a href="https://www.tiktok.com/@simbiangaming" class="link-button">
+TikTok
+     </a>
+
+        </div>
+    </div>
+    <div class="category">
+        <div class="category-title">- Simbian Stuff -</div>
+        <div class="link-group">
+                                               <a href="https://www.youtube.com/@SimbianStuff" class="link-button">
+Youtube
+    </a>
+                               <a href="https://www.tiktok.com/@simbianstuff" class="link-button">
+TikTok
+     </a>
+
+
+        </div>
+    </div>
+    <div class="category">
+        <div class="category-title">- Tom's Game Corner -</div>
+        <div class="link-group">
+                                                           <a href="https://www.youtube.com/@SimbiansGameCorner" class="link-button">
+Youtube
+    </a>
+                               <a href="https://www.tiktok.com/@simbiansgamecorner" class="link-button">
+TikTok
+     </a>
+        </div>
+    </div>
+    <div class="category">
+        <div class="category-title">- Simbian Ducks and Swans -</div>
+        <div class="link-group">
+                                                                       <a href="https://www.youtube.com/@SimbianDucksNSwans" class="link-button">
+Youtube
+    </a>
+
+        </div>
+    </div>
+    <div class="category">
+        <div class="category-title">- Selling -</div>
+        <div class="link-group">
+                                                                                   <a href="https://www.skelbiu.lt/pasiulymai/stl/" class="link-button">
+Skelbiu.lt
+    </a>
+                                                                           <a href="https://www.vinted.lt/member/182381522" class="link-button">
+Vinted
+    </a>
+</div>
+  </div>
+
+</div>
+
+ <div class="popup-overlay" id="popupOverlay2">
+        <div class="bottom-popup">
+            <p class="popup-title">Contacts</p>
+            <p class="popup-text">For business and colaboration you can contact me over at simbiangaming@gmail.com, for all other porpuses you can find me on discord "simbiangaming".</p>
+            <!-- Dismiss function updated to target specific ID -->
+            
+            <a class="popup-dismiss" onclick="dismissPopup('popupOverlay2')" href="https://discord.gg/rKBt8swwwm" style="white-space: nowrap;">Join the Discord server</a>
+            <button class="popup-dismiss" onclick="dismissPopup('popupOverlay2')">Close</button>
+            <div class="popup-border-bottom"></div>
+        </div>
+    </div>
+</div>
+
+ <div class="popup-overlay" id="popupOverlay3">
+        <div class="bottom-popup">
+            <p class="popup-title">Donate and Support me</p>
+            <p class="popup-text">You can support me by donating on ko-fi or you can also purchace various things i sell online on platforms like Vinted.</p>
+            <!-- Dismiss function updated to target specific ID -->
+            
+            <a class="popup-dismiss" onclick="dismissPopup('popupOverlay3')" href="https://ko-fi.com/simbiantech" style="white-space: nowrap;">Continue</a>
+            <a class="popup-dismiss" onclick="dismissPopup('popupOverlay3')" href="https://www.vinted.lt/member/182381522" style="white-space: nowrap;">Vinted</a>
+            <button class="popup-dismiss" onclick="dismissPopup('popupOverlay3')">Close</button>
+            <div class="popup-border-bottom"></div>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<div class="footer-overlay">
+  <footer class="custom-footer">
+    <p class="footer-top-text">Background: Default Gray (Modern)<br>© 2026 Simbian Tech.</p>
+
+  </footer>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById("mobileMenu");
+    const icon = document.getElementById("hamburgerIcon");
+
+    menu.classList.toggle("active");
+
+    if (menu.classList.contains("active")) {
+        icon.src = "/resources/close-icon.webp"; // <- Update this to your actual "close" icon path
+    } else {
+        icon.src = "/resources/ham.webp";
+    }
+}
+    
+    // Updated dismissPopup function to accept an ID
+    function dismissPopup(popupId) {
+        const overlay = document.getElementById(popupId);
+        if (overlay) {
+            overlay.style.display = "none";
+        }
+    }
+
+    // New function to trigger a specific popup
+    function triggerPopup(popupId) {
+        const overlay = document.getElementById(popupId);
+        if (overlay) {
+            overlay.style.display = "flex"; // Use 'flex' or 'block' depending on your CSS for display
+        }
+    }
+
+    // Function to show the first popup on page load
+    window.onload = function() {
+        triggerPopup('popupOverlay1');
+    };
+</script>
+</body>
+</html>

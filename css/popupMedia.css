@@ -1,0 +1,209 @@
+        /* Popup Styles */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.205);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.bottom-popup {
+    position: relative;
+    background-color: rgba(19, 28, 51, 0.686);
+    color: #00A2E8;
+    padding: 30px 20px 20px;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.226);
+    background-repeat: repeat-x;
+    background-position: top center;
+    background-size: 10px auto;
+    background-image: url('/resources/div2.webp');
+    overflow: hidden; /* Ensure pseudo-elements don’t spill */
+}
+
+.bottom-popup::before,
+.bottom-popup::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 10px; /* or whatever width your div.png is */
+    height: 100%;
+    background-image: url('/resources/div.webp');
+    background-repeat: repeat-y;
+    background-size: auto 10px;
+    z-index: 1;
+}
+
+.bottom-popup::before {
+    left: 0;
+}
+
+.bottom-popup::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background-image: url('/resources/div.webp');
+    background-repeat: repeat-y;
+    background-size: auto 10px;
+    pointer-events: none;
+    z-index: 2;
+    background-position: right bottom;
+}
+.popup-border-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-image: url('/resources/div2.webp');
+    background-repeat: repeat-x;
+    background-size: 10px auto;
+    pointer-events: none;
+    z-index: 2;
+    background-position: left bottom;
+}
+
+
+.popup-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.popup-text {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.popup-dismiss {
+        font-size: 20px;
+      background: rgba(60, 106, 156, 0.512);
+      border: none;
+      color: #00a2e8;
+      padding: 8px 15px;
+      margin: 3px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s;
+       font-family: 'Lilita One';
+       text-decoration: none;
+        }
+
+        .popup-dismiss:hover {
+                  background: rgba(38, 68, 100, 0.512);
+      color: #99D9EA;
+            
+        }
+
+        .popup-dismiss:active {
+                  background: rgba(38, 68, 100, 0.512);
+      color: #99D9EA;
+        }
+       
+
+     /* Add these new and updated styles */
+.popup-content-wrapper {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    z-index: 10;
+    /* Remove default text-align: left here to allow media query to control it */
+}
+
+.popup-media-area {
+    flex-basis: 40%;
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+    /* Max Height Constraint */
+    max-height: 200px; 
+    
+    /* Aspect Ratio Hack (this must adapt based on the *width* constraint) */
+    /* We achieve the 1:1 visually with object-fit: cover on the content */
+    height: 200px; /* Fix height when max-height is defined */
+    width: 100%; /* Take full width within its flex-basis for calculation */
+    flex-shrink: 0; /* Prevents flexbox from shrinking it below 200px height */
+}
+
+.popup-main-content {
+    flex-basis: 60%;
+    /* Remove default text-align: left here */
+}
+
+/* Ensure existing text styles align left by default on desktop */
+.popup-title, .popup-text {
+    text-align: left;
+}
+
+/* Style for images inside the media area */
+.popup-media-area img {
+    /* Fit image to the 200x200px area */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This centers and crops the image to fill the 200px square */
+    position: absolute; /* Ensures it sits inside the aspect ratio container */
+    top: 0;
+    left: 0;
+}
+
+/* Style for responsive YouTube embeds (adjust to fit the 1:1 container) */
+.video-container {
+    /* The container must also fill the 200x200px area */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.video-container iframe {
+    /* iframe fits the container */
+    width: 100%;
+    height: 100%;
+    border: 0;
+    /* object-fit: cover; will crop the 16:9 video within the 1:1 space */
+}
+
+.lightbox-btn.close {
+    right: 20px;
+}
+/* --- Mobile Styles (Media Query) --- */
+@media (max-width: 600px) { 
+    .popup-content-wrapper {
+        flex-direction: column-reverse; /* Stacks media area on TOP of text area */
+        gap: 15px;
+    }
+
+    .popup-media-area,
+    .popup-main-content {
+        flex-basis: auto; 
+        width: 100%; 
+    }
+    
+    /* On mobile, we still enforce the 200px max height constraint */
+    .popup-media-area {
+        height: 200px;
+    }
+
+    /* Center text and buttons in mobile view */
+    .popup-title, 
+    .popup-text,
+    .popup-main-content {
+        text-align: center;
+    }
+}

@@ -1,0 +1,44 @@
+body {
+    color: #c9c9c9;
+}
+nav#contents-nav {
+    background: rgba(51, 86, 104, 0.4);
+  backdrop-filter: blur(10px);
+
+  }
+  nav#contents-nav h2 {
+  border-bottom: 1px solid #3F6A7F;
+  }
+  nav#contents-nav ul li a {
+  text-decoration: none;
+  color:#568fab;
+}
+nav#contents-nav ul li a:hover {
+  text-decoration: underline;
+}
+ article {
+        background: rgba(51, 86, 104, 0.4);
+  backdrop-filter: blur(10px);
+}
+    article h2 {
+      border-bottom: 1px solid #3F6A7F;
+    }
+    .infobox {
+        background: rgba(51, 86, 104, 0.4);
+  backdrop-filter: blur(10px);
+}
+    .infobox table td {
+      border-bottom: 1px solid #3F6A7F;
+    }
+        .thumb {
+ background: rgba(50, 113, 129, 0.512);
+        }
+        a {
+  color: #568fab;
+}
+        @media (min-width: 891px) {
+  nav {
+    background: rgba(19, 28, 51, 0.7);
+    backdrop-filter: blur(5px);
+  }
+}

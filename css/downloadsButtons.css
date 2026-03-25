@@ -1,0 +1,127 @@
+/* Right Section */
+     .right-section {
+        width: 66.66%;
+         padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 33.33%; /* Align the right section next to the left section */
+    }
+
+.right-section .button {
+    width: 100%;
+    max-width: 870px;
+    aspect-ratio: 870 / 200;
+    margin-bottom: 20px;
+padding: -20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+
+
+        
+
+    
+.styled-button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 870px;
+    aspect-ratio: 870 / 200;
+    max-height: 200px;
+
+    background-color: rgba(19, 28, 51, 0.7);
+    backdrop-filter: blur(10px);
+    
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+ 
+    color: #00A2E8;
+    text-decoration: none;
+    font-family: 'Lilita One', cursive;
+
+    transition:
+        background-color 0.4s ease,
+        color 0.3s ease;
+}
+
+/* Hover and active states */
+.styled-button:hover,
+.styled-button.active {
+    background-color: rgba(38, 68, 100, 0.55);
+    color: #99D9EA;
+}
+
+/* Main title scales smoothly between small and large screens */
+.styled-button .main-title {
+    font-size: clamp(1.4rem, 2.5vw + 0.5rem, 2.5rem);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    
+}
+
+/* Side info text */
+.styled-button .left-info,
+.styled-button .right-info {
+    position: absolute;
+    bottom: 8%;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    font-size: clamp(0.9rem, 1.6vw + 0.2rem, 1.4rem);
+}
+
+/* Align left and right info */
+.styled-button .left-info {
+    text-align: left;
+    left: 2%;
+}
+.styled-button .right-info {
+    text-align: right;
+    right: 2%;
+}
+
+/* Large screens */
+
+/* Footer */
+
+.styled-button .main-title {
+        padding: 2%;
+}
+
+@media (max-width: 900px) {
+    .styled-button2 .main-title2 {
+        font-size: calc(4.3vw + 1vh);
+}
+
+
+
+    .styled-button .main-title {
+        font-size: calc(4.3vw + 1vh);
+}
+
+
+/* Footer */
+
+.styled-button .left-info,
+.styled-button .right-info {
+    font-size: calc(2vw + 1vh);
+
+}
+
+    /* Left Section */
+   
+
+    /* Right Section */
+    .right-section {
+        height: 66.6%;  /* Fix right section width to 66.6% */
+        width: 100%;  /* Make it take full width */
+        margin-left: 0;  /* Remove the margin */
+        padding: 20px;  /* Keep the padding consistent */
+    }
+}

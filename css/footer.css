@@ -1,0 +1,72 @@
+ .footer-top-text,
+.footer-bottom-text {
+  margin: 10px 0;
+  font-size: 22px;
+  color: #00a2e8;
+  text-shadow: 0 0 4px rgba(0, 162, 232, 0.3);
+  align-items: center;
+  text-shadow:
+-2px -2px 0 #99D9EA,
+     2px -2px 0 #99D9EA,
+    -2px  2px 0 #99D9EA,
+     2px  2px 0 #99D9EA,
+    -2px  0px 0 #99D9EA,
+     2px  0px 0 #99D9EA,
+     0px -2px 0 #99D9EA,
+     0px  2px 0 #99D9EA;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px 30px;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 500px;
+}
+
+.footer-links a {
+  display: flex;
+  align-items: center;
+  color: #00a2e8;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #50c9ff;
+}
+
+.footer-links img {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  filter: drop-shadow(0 0 1px #00a2e8);
+}
+.footer-overlay {
+    margin-top: 25px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background: rgba(19, 28, 51, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+     background-repeat: repeat-x;
+    background-position: top center; /* Adjusted to position at the bottom */
+        background-size: 10px auto;  /* Maintain original texture size for vertical stretching */
+        background-image: url('/resources/div2.webp');  /* Replace with your new image */
+}
+
+        @media (min-width: 1370px) {
+                    
+  .footer-links {
+    grid-template-columns: 1fr;
+    text-align: left;
+    padding: 0 10px;
+  }
+}

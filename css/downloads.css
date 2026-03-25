@@ -1,0 +1,39 @@
+       .container {
+
+    width: 100%;
+}
+
+
+
+        /* Header */
+      
+
+      /* Grid of Buttons */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 420px)); /* Adjust min size for responsiveness */
+    gap: 20px;
+    justify-content: center; /* Center the grid horizontally */
+    margin-top: 150px; /* To avoid overlap with the fixed header */
+    width: 100%; /* Ensure it spans the container width */
+
+    
+}
+
+.button {
+    width: 100%; /* Allow size to be dictated by the grid cell */
+    aspect-ratio: 420 / 380; /* Maintain aspect ratio */
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+.button:active {
+    transform: translateY(1px);
+}
