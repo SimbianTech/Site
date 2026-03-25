@@ -49,7 +49,10 @@
             display: none; 
         }
 
-
+.status-box { padding: 20px; border-radius: 8px; border: 2px solid #ccc; transition: 0.3s; }
+        .online { border-color: #2ecc71; background-color: #eafaf1; color: #27ae60; }
+        .offline { border-color: #e74c3c; background-color: #fdedec; color: #c0392b; }
+        button { margin-top: 20px; padding: 10px 20px; cursor: pointer; }
 
 
         
@@ -67,8 +70,7 @@
     </div>
 
     <!-- Hamburger Menu (Image as Icon) -->
-    <div class="hamburger-menu" onclick="toggleMenu()">
-        <img id="hamburgerIcon" src="/resources/ham.webp" alt="Menu Icon">
+    <div class="hamburger-menu" onclick="toggleMenu()">Menu
     </div>
 </div>
 
@@ -82,6 +84,11 @@
 </div>
 
 <!-- Link Tree Categories -->
+ <h2>Server Monitor</h2>
+    <div id="statusIndicator" class="status-box">
+        Status: <span id="statusText">Unknown</span>
+    </div>
+    <button onclick="checkStatus()">Check Now</button>
 <div class="container">
     <div class="category">
     </div>
@@ -92,8 +99,7 @@
         <div class="link-group">
                                    <a onclick="triggerPopup('popupOverlay2'); return false;" class="link-button" >Contacts
     </a>
-                       <a onclick="triggerPopup('popupOverlay3'); return false;" class="link-button">
-    <a alt="Icon">Donate
+                       <a onclick="triggerPopup('popupOverlay3'); return false;" class="link-button">Donate
     </a>
            <a href="https://discord.gg/rKBt8swwwm" class="link-button">
    Discord Server
@@ -221,6 +227,36 @@ Vinted
   </footer>
 
 <script>
+    
+        async function checkStatus() {
+            const statusText = document.getElementById('statusText');
+            const indicator = document.getElementById('statusIndicator');
+            
+            // Replace this with the URL you want to check
+            // NOTE: Must support CORS if it's a different domain
+            const targetUrl = 'https://simbiansattic.lt';
+
+            statusText.innerText = "Checking...";
+
+            try {
+                const response = await fetch(targetUrl, { mode: 'cors', cache: 'no-cache' });
+                
+                if (response.ok) {
+                    statusText.innerText = "Online";
+                    indicator.className = "status-box online";
+                } else {
+                    throw new Error();
+                }
+            } catch (error) {
+                statusText.innerText = "Offline / Unreachable";
+                indicator.className = "status-box offline";
+            }
+        }
+
+        // Initial check on load
+        checkStatus();
+    
+
 function toggleMenu() {
     const menu = document.getElementById("mobileMenu");
     const icon = document.getElementById("hamburgerIcon");
