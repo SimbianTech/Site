@@ -49,10 +49,6 @@
             display: none; 
         }
 
-.status-box { padding: 20px; border-radius: 8px; border: 2px solid #ccc; transition: 0.3s; }
-        .online { border-color: #2ecc71; background-color: #eafaf1; color: #27ae60; }
-        .offline { border-color: #e74c3c; background-color: #fdedec; color: #c0392b; }
-        button { margin-top: 20px; padding: 10px 20px; cursor: pointer; }
 
 
         
@@ -84,17 +80,9 @@
 </div>
 
 <!-- Link Tree Categories -->
- <h2>Server Monitor</h2>
-    <div id="statusIndicator" class="status-box">
-        Status: <span id="statusText">Unknown</span>
-    </div>
-    <button onclick="checkStatus()">Check Now</button>
-<div class="container">
-    <div class="category">
-    </div>
-    <div class="category">
-   
 
+<div class="category-title">⚠️ Nugget is currently offline</div>
+<p class="popup-text">Expected service restoration: March 26th 2026 - 18:00<br>For more information contact Simbian<br></p>
         <div class="category-title">- Main -</div>
         <div class="link-group">
                                    <a onclick="triggerPopup('popupOverlay2'); return false;" class="link-button" >Contacts
@@ -227,35 +215,7 @@ Vinted
   </footer>
 
 <script>
-    
-        async function checkStatus() {
-            const statusText = document.getElementById('statusText');
-            const indicator = document.getElementById('statusIndicator');
-            
-            // Replace this with the URL you want to check
-            // NOTE: Must support CORS if it's a different domain
-            const targetUrl = '87.247.100.115:25565';
 
-            statusText.innerText = "Checking...";
-
-            try {
-                const response = await fetch(targetUrl, { mode: 'cors', cache: 'no-cache' });
-                
-                if (response.ok) {
-                    statusText.innerText = "Online";
-                    indicator.className = "status-box online";
-                } else {
-                    throw new Error();
-                }
-            } catch (error) {
-                statusText.innerText = "Offline / Unreachable";
-                indicator.className = "status-box offline";
-            }
-        }
-
-        // Initial check on load
-        checkStatus();
-    
 
 function toggleMenu() {
     const menu = document.getElementById("mobileMenu");
